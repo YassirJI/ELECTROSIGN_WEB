@@ -1,0 +1,43 @@
+{
+    "name": "contract-management-experience",
+    "version": "1.1.0",
+    "author": "CMX",
+    "description": "Package for the Contract Management Experience",
+    "scripts": {
+        "build": "tsc -p ./",
+        "build:watch": "tsc -p ./ -w",
+        "serve": "lite-server -c=bs-config.json",
+        "prestart": "npm run build",
+        "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
+        "lint": "tslint ./**/*.ts -t verbose"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@angular/common": "~4.0.0",
+        "@angular/compiler": "~4.0.0",
+        "@angular/core": "~4.0.0",
+        "@angular/forms": "~4.0.0",
+        "@angular/http": "~4.0.0",
+        "@angular/platform-browser": "~4.0.0",
+        "@angular/platform-browser-dynamic": "~4.0.0",
+        "@angular/router": "~4.0.0",
+
+        "systemjs": "0.19.40",
+        "core-js": "^2.4.1",
+        "rxjs": "5.0.1",
+        "zone.js": "^0.8.4",
+        "bootstrap": "^3.3.6"
+    },
+    "devDependencies": {
+        "concurrently": "^3.2.0",
+        "lite-server": "^2.2.2",
+        "typescript": "~2.1.0",
+
+        "canonical-path": "0.0.2",
+        "tslint": "^3.15.1",
+        "rimraf": "^2.5.4",
+
+        "@types/node": "^6.0.46"
+    },
+    "repository": {}
+}
