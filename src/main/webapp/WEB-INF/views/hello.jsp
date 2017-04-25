@@ -9,18 +9,24 @@
     <meta name="viewport" content="width=device-width, user-scalable=no">
     
     <title>Contract Management Experience ...</title>
-    <link href="/resources/static/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/rdash-ui/dist/css/rdash.css">
+    <link rel="stylesheet" type="text/css" href="/resources/static/main.css">
     
-    <script src="/resources/static/node_modules/core-js/client/shim.min.js"></script>
-    <script src="/resources/static/node_modules/zone.js/dist/zone.js"></script>
-    <script src="/resources/static/node_modules/systemjs/dist/system.src.js"></script>
- 
-    <script src="/resources/static/systemjs.config.js"></script>
-    <script>
-      System.import('/resources/static/main.js').catch(function(err){ console.error(err); });
-    </script>
-	</head>
+    
+   </head>
 <body>
-	<pm-app>Loading App...</pm-app>
+<app>Loading App...</app>
+
+<script src="/resources/static/node_modules/core-js/client/shim.min.js"></script>
+<script src="/resources/static/node_modules/zone.js/dist/zone.js"></script>
+<script src="/resources/static/node_modules/systemjs/dist/system.src.js"></script>
+<script src="/resources/static/systemjs.config.js"></script>
+<script>
+    System.import('/resources/static/main.js').catch(function(err){ console.error(err); });
+</script>
+	
+</div>
 </body>
 </html>

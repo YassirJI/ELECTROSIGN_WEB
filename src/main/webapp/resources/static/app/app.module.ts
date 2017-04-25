@@ -5,9 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component.js';
 import { WelcomeComponent } from './home/welcome.component.js';
-
-/* Feature Modules */
 import { ProductModule } from './products/product.module.js';
+import { DashboardModule } from './components/dashboard/dashboard.module.js';
 
 @NgModule({
   imports: [
@@ -17,8 +16,9 @@ import { ProductModule } from './products/product.module.js';
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-    ]),
-    ProductModule
+      ]),
+    ProductModule,
+    DashboardModule
   ],
   declarations: [
     AppComponent,

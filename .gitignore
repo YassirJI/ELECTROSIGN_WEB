@@ -31,3 +31,5 @@ src/main/webapp/resources/static/app/**/*.js
 src/main/webapp/resources/static/app/**/*.map
 src/main/webapp/resources/static/main.js
 src/main/webapp/resources/static/main.js.map
+src/main/webapp/resources/static/node
+src/main/webapp/resources/static/node_modules
