@@ -11,8 +11,7 @@
     <title>Contract Management Experience ...</title>
     <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/rdash-ui/dist/css/rdash.css">
-    <link rel="stylesheet" type="text/css" href="/resources/static/main.css">
+    <link rel="stylesheet" type="text/css" href="/resources/static/style.css">
     
     
    </head>

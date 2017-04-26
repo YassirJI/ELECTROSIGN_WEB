@@ -117,7 +117,7 @@
 		        <workingDirectory>${project.basedir}/src/main/webapp/resources/static</workingDirectory>
 		      </configuration>
 		      <executions>
-		        <!-- It will install nodejs and npm -->
+		        <!-- It will install nodejs and npm 
 		        <execution>
 		          <id>install node and npm</id>
 		          <goals>
@@ -128,8 +128,8 @@
 		            <npmVersion>3.9.5</npmVersion>
 		          </configuration>
 		        </execution>
-		
-		        <!-- It will execute command "npm install" inside "/static" directory -->
+		-->
+		        <!-- It will execute command "npm install" inside "/static" directory 		-->
 		        <execution>
 		          <id>npm install</id>
 		          <goals>
@@ -139,7 +139,7 @@
 		            <arguments>install</arguments>
 		          </configuration>
 		        </execution>
-		
+
 		        <!-- It will execute command "npm build" inside "/static" directory to clean and create "/dist" directory-->
 		        <execution>
 		          <id>npm build</id>
