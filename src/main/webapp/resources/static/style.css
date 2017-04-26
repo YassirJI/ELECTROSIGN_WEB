@@ -8555,5 +8555,18 @@ body.md-skin {
 @media (min-width: 1200px) {
   .container {
       width: 100%;
+      padding-left: 0px !important; 
+      padding-right: 0px !important; 
   }
+}
+
+.header-select {
+  background: transparent;
+  font-size: 18px;
+  border: 0px;
+}
+ .header-select option {
+  background: transparent;
+  font-size: 16px;
+  border: 0px;
 }

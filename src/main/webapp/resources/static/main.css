@@ -26,3 +26,10 @@
         -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
       }
 }
+
+.header-select {
+  background: transparent;
+  font-size: 24px;
+  border: 0px;
+  padding: 10px 10px;
+}
