@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }  from '@angular/core';
 
 import { Dashboard } from './dashboard.js';
 import { DashboardService } from './dashboard.service.js';
 
-
 @Component({
-    selector: 'dashboard',
-    templateUrl: 'app/components/dashboard/dashboard.component.html'
+    templateUrl: './app/components/dashboard/dashboard-list.component.html'
 })
-export class DashboardComponent implements OnInit {
+export class DashboardListComponent implements OnInit {
+    listFilter: string;
     errorMessage: string;
 
-    selectedDashboard:Dashboard;
     dashboards: Dashboard[];
 
     constructor(private _dashboardService: DashboardService) {
@@ -22,8 +20,5 @@ export class DashboardComponent implements OnInit {
         this._dashboardService.getDashboards()
                 .subscribe(dashboards => this.dashboards = dashboards,
                            error => this.errorMessage = <any>error);
-        this._dashboardService.getDashboard(1).subscribe(
-            dashboard => this.selectedDashboard = dashboard,
-            error => this.errorMessage = <any>error);
     }
 }

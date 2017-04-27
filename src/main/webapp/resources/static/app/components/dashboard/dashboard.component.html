@@ -1,20 +1,44 @@
 <div class="border-bottom">
              <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class='container-fluid' style="padding: 20x 30px;">
-                        <select class='header-select'>
-                                <option *ngFor="let dashboard of dashboards" value= {{dashboard.id}}>
-                                    {{dashboard.name}}
-                                </option>
-                        </select>
+                <div class='container-fluid' style="padding: 20px 30px;">
+                    <div class="row">
+                        <div class="col-lg-8"> 
+                           <div id="dashboard-selector" class="dropdown transparentbar" style="z-index:4">
+                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               Dashboard
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let dashboard of dashboards" > 
+                                        <a  href="#"  id={{dashboard.id}}>{{dashboard.name}}</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a [routerLink]="['/dashboards']">Manage dashboards</a></li>
+                                </ul> 
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                             <button type="button" class="btn btn-sm btn-primary pull-right">Add Dashlet</button>
+                        </div> 
+                    </div>
                 </div>
             </nav>
 </div>
-        
-<div  style="padding: 20px 30px;" >
 
+<div  style="padding: 20px 30px" >
 <div class="row">
     <div class="col-lg-12">
         <div class="wrapper wrapper-content">
+
+ <!--           <rd-widget *ngFor="let dashlet of selectedDashboard.dashlets">
+                        <rd-widget-header>
+                           <h5>{{dashlet.title}}</h5>
+                        </rd-widget-header>
+                        <rd-widget-body >
+                            <div>
+                                {{dashlet.content}}
+                            </div>
+                        </rd-widget-body>
+            </rd-widget>-->
             <div class="row">
                 <div class="col-lg-4">
                      <rd-widget>

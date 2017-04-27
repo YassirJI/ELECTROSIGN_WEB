@@ -1,3 +1,10 @@
-export class Dashboard {
-  constructor(public id: number, public name: string) { }
+import { Dashlet } from './dashlet.js';
+
+export interface Dashboard {
+
+  id: number;
+  name: string;
+  description: string;
+  creationDate: string;
+  dashlets: Dashlet[];
 }

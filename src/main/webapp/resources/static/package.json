@@ -4,8 +4,8 @@
     "author": "CMX",
     "description": "Package for the Contract Management Experience",
     "scripts": {
-        "build": "tsc -p ./",
-        "build:watch": "tsc -p ./ -w",
+        "build": "tsc -p ./ --outDir ./build",
+        "build:watch": "tsc -p ./ --outDir ./build -w ",
         "serve": "lite-server -c=bs-config.json",
         "prestart": "npm run build",
         "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
@@ -22,11 +22,13 @@
         "@angular/platform-browser-dynamic": "~4.0.0",
         "@angular/router": "~4.0.0",
 
+        "bootstrapjs": "2.0.0",
+        "jquery": "3.2.1",
         "systemjs": "0.19.40",
         "core-js": "^2.4.1",
         "rxjs": "5.0.1",
         "zone.js": "^0.8.4",
-        "bootstrap": "^3.3.6",
+        "bootstrap": "^3.3.7",
         "font-awesome": "^4.6.1"
     },
     "devDependencies": {

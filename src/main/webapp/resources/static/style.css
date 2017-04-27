@@ -8560,13 +8560,13 @@ body.md-skin {
   }
 }
 
-.header-select {
+#dashboard-selector > .btn-default {
   background: transparent;
   font-size: 18px;
   border: 0px;
+  padding: 0px;
 }
- .header-select option {
-  background: transparent;
-  font-size: 16px;
-  border: 0px;
+
+.table-responsive th, .table-responsive td {
+  font-size:13px !important;
 }

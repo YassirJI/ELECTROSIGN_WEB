@@ -4,22 +4,30 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard.component.js';
+import { DashboardListComponent } from './dashboard-list.component.js';
 import { RdWidgetComponent } from '../rd-widget/widget.component.js';
 import { RdWidgetBodyComponent } from '../rd-widget-body/widget-body.component.js';
 import { RdWidgetHeaderComponent } from '../rd-widget-header/widget-header.component.js';
 import { RdWidgetFooterComponent } from '../rd-widget-footer/widget-footer.component.js';
-import { RdLoading } from '../rd-loading/rd-loading.js';
+import { DashboardFilterPipe } from './dashboard-filter.pipe.js';
+import { DashboardService } from './dashboard.service.js';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild([
-      { path: 'dashboard', component: DashboardComponent }
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dashboards', component: DashboardListComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ])
   ],
   declarations: [
-    DashboardComponent, RdWidgetComponent, RdWidgetBodyComponent, RdWidgetFooterComponent, RdWidgetHeaderComponent, RdLoading
+    DashboardComponent, DashboardListComponent,  DashboardFilterPipe, RdWidgetComponent, RdWidgetBodyComponent, RdWidgetFooterComponent, RdWidgetHeaderComponent
+  ],
+  providers: [
+    DashboardService,
   ]
 })
 export class DashboardModule {}

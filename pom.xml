@@ -170,7 +170,7 @@
 		            <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/</outputDirectory>
 		            <resources>
 		              <resource>
-		                <directory>${project.basedir}/src/main/resources/static/dist</directory>
+		                <directory>${project.basedir}/src/main/resources/static/build</directory>
 		              </resource>
 		            </resources>
 		          </configuration>
