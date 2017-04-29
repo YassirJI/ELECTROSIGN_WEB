@@ -4,4 +4,5 @@ export interface Dashlet {
   title: string;
   content: string;
   category: string;
+  dashboardId:number;
 }

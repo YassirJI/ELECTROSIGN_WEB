@@ -4,6 +4,9 @@ import { Dashboard } from './dashboard.js';
 import { DashboardService } from './dashboard.service.js';
 
 
+import { Dashlet } from './dashlet.js';
+import { DashletService } from './dashlet.service.js';
+
 @Component({
     selector: 'dashboard',
     templateUrl: 'app/components/dashboard/dashboard.component.html'
@@ -11,10 +14,11 @@ import { DashboardService } from './dashboard.service.js';
 export class DashboardComponent implements OnInit {
     errorMessage: string;
 
-    selectedDashboard:Dashboard;
     dashboards: Dashboard[];
-
-    constructor(private _dashboardService: DashboardService) {
+    selectedDashlets: Dashlet[];
+    selectedDashboard:Dashboard;
+    
+    constructor(private _dashboardService: DashboardService, private _dashletService: DashletService) {
 
     }
 
@@ -22,8 +26,19 @@ export class DashboardComponent implements OnInit {
         this._dashboardService.getDashboards()
                 .subscribe(dashboards => this.dashboards = dashboards,
                            error => this.errorMessage = <any>error);
-        this._dashboardService.getDashboard(1).subscribe(
-            dashboard => this.selectedDashboard = dashboard,
-            error => this.errorMessage = <any>error);
+               
+        this.findDashlets(1);
+        
     }
+
+    onChangeDashboard(dashboard:Dashboard) {
+        this.selectedDashboard = dashboard;
+        this.findDashlets(dashboard.id);
+  }
+
+  findDashlets(dashboardId:number): void {
+    this._dashletService.getDashlets(dashboardId)
+                    .subscribe(dashlets => this.selectedDashlets = dashlets,
+                            error => this.errorMessage = <any>error);
+ }
 }

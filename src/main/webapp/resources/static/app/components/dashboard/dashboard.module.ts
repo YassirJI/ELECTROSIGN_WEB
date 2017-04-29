@@ -11,6 +11,7 @@ import { RdWidgetHeaderComponent } from '../rd-widget-header/widget-header.compo
 import { RdWidgetFooterComponent } from '../rd-widget-footer/widget-footer.component.js';
 import { DashboardFilterPipe } from './dashboard-filter.pipe.js';
 import { DashboardService } from './dashboard.service.js';
+import { DashletService } from './dashlet.service.js';
 
 @NgModule({
   imports: [
@@ -24,10 +25,17 @@ import { DashboardService } from './dashboard.service.js';
     ])
   ],
   declarations: [
-    DashboardComponent, DashboardListComponent,  DashboardFilterPipe, RdWidgetComponent, RdWidgetBodyComponent, RdWidgetFooterComponent, RdWidgetHeaderComponent
+    DashboardComponent, 
+    DashboardListComponent,  
+    DashboardFilterPipe, 
+    RdWidgetComponent, 
+    RdWidgetBodyComponent, 
+    RdWidgetFooterComponent, 
+    RdWidgetHeaderComponent
   ],
   providers: [
     DashboardService,
+    DashletService
   ]
 })
 export class DashboardModule {}

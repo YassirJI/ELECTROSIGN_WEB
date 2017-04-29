@@ -3934,6 +3934,7 @@ code {
 .ibox-content {
   background-color: #ffffff;
   color: inherit;
+  height: 350px;
   padding: 15px 20px 20px 20px;
   border-color: #e7eaec;
   border-image: none;
@@ -8569,4 +8570,8 @@ body.md-skin {
 
 .table-responsive th, .table-responsive td {
   font-size:13px !important;
+}
+
+.feed-activity-list {
+  height: 85%;
 }

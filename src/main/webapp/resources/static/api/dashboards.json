@@ -3,28 +3,7 @@
         "id": 1,
         "name": "Dashboard 1",
         "description": "Leaf rake with 48-inch wooden handle.",
-        "creationDate": "March 19, 2016",
-        "dashlets": [{
-             "id": "1",
-             "title": "Contract Analytics",
-             "content": "Content ...",
-             "category": "shart"
-        }, {
-             "id": "2",
-             "title": "Tasks",
-             "content": "Content ...",
-             "category": "list"
-        }, {
-             "id": "3",
-             "title": "Audit Trail",
-             "content": "Content ...",
-             "category": "list"
-        }, {
-             "id": "4",
-             "title": "Expiring Contracts",
-             "content": "Content ...",
-             "category": "list"
-        }]
+        "creationDate": "March 19, 2016"
     },
     {
         "id": 2,
@@ -33,7 +12,7 @@
         "creationDate": "March 19, 2016"
     },
     {
-        "id": 5,
+        "id": 3,
         "name": "Dashboard 3",
         "description": "Curved claw steel hammer",
         "creationDate": "March 19, 2016"
