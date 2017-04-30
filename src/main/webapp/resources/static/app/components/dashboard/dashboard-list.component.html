@@ -6,7 +6,8 @@
                             <h3>Dashboards</h3>
                         </div>
                         <div class="col-lg-4">
-                             <button type="button" class="btn btn-sm btn-primary pull-right"> Add Dashboard</button>
+                             <button type="button" class="btn btn-sm btn-primary pull-right"
+                                [routerLink]="['/add-dashboard']"> Add Dashboard</button>
                         </div>
                     </div>
                 </div>
@@ -42,6 +43,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <footer ><a href="#" class="btn btn-danger btn-sm" id="delete-checked"> Delete</a></footer>
                                     </div>         
                         </rd-widget-body>
                     </rd-widget>

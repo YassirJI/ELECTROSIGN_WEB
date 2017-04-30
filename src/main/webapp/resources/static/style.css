@@ -3934,7 +3934,6 @@ code {
 .ibox-content {
   background-color: #ffffff;
   color: inherit;
-  height: 350px;
   padding: 15px 20px 20px 20px;
   border-color: #e7eaec;
   border-image: none;
@@ -8429,7 +8428,7 @@ body.md-skin {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 0;
-    min-height: 1200px;
+    min-height: 700px;
   }
   .navbar-static-side {
     z-index: 2001;
@@ -8574,4 +8573,8 @@ body.md-skin {
 
 .feed-activity-list {
   height: 85%;
+}
+
+.dashboard-widget-height {
+  height: 350px;
 }
