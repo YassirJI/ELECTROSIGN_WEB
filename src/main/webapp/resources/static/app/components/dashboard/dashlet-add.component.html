@@ -1,0 +1,37 @@
+<div class="border-bottom">
+             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class='container-fluid' style="padding: 20px 30px;">
+                    <div class="row">
+                        <div class="col-lg-8"> 
+                            <h3>Dashlets</h3>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+</div>
+    
+<div class="wrapper wrapper-content" style="padding: 20px 30px" >
+            <div class="row">
+                <div *ngFor="let category of categories; let i = index">
+                    <div class="clearfix" *ngIf="i % 4 == 0"></div>
+                    <div class="col-lg-3" >
+                        <rd-widget>
+                            <rd-widget-header>
+                            <h5>{{category.title}}</h5>
+                            </rd-widget-header>
+                            <rd-widget-body >
+                                <div class="panel wrapper b-a text-center">
+                                    <div class="text-base"><i class="portlets-modal-icon icon icon-user"></i>				
+                                        <b>{{category.title}}</b>
+                                    </div><br>
+                                    <div class="text-flow-ellipsis line-clamp line-clamp-3 m-b widget-text" style="height:60px" rel="tooltip" title="See a list of 50 recently added contacts customizable by filters.">
+                                       {{category.description}}
+                                        </div>
+                                    <a type="button" class="btn btn-sm btn-default configure-portlets" route="" portlet_type="CONTACTS" portlet_name="Filter Based">Add</a>
+                                </div>
+                            </rd-widget-body>
+                        </rd-widget>
+                    </div>
+                </div>
+            </div>
+</div>

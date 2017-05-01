@@ -1,0 +1,23 @@
+[
+    {
+             "id": 1,
+             "title": "Contract Analytics",
+             "description": "See Contract Analytics"
+    }, 
+    {
+             "id": 2,
+             "title": "Tasks",
+             "description": "See yours todos in your dashboard"
+    },
+    {
+             "id": 3,
+             "title": "Audit Trail",
+             "description": "See Audit Trail in your dashboard"
+    }, 
+    {
+             "id": 4,
+             "title": "Expiring Contracts",
+             "description": "See Expiring Contracts in your dashboard",
+             "category": "list"
+    }
+]
