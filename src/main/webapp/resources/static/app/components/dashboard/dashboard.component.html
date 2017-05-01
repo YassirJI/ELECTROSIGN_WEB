@@ -23,6 +23,7 @@
                 </div>
             </nav>
 </div>
+
 <div  style="padding: 20px 30px" >
     <div class="wrapper wrapper-content">
         <div class="row">
@@ -34,7 +35,12 @@
                             <h5>{{dashlet.title}}</h5>
                             </rd-widget-header>
                             <rd-widget-body classes="dashboard-widget-height">
-                                <div [innerHTML]="dashlet.content"></div>
+                                <div *ngIf="dashlet.category !== 'chart'" [innerHTML]="dashlet.content"></div>
+                                <div *ngIf="dashlet.category === 'chart'" style="display: block; padding-left:60px; padding-right:60px">
+                                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
+                                                (chartHover)="chartHovered($event)"
+                                                (chartClick)="chartClicked($event)"></canvas>
+                                </div>
                             </rd-widget-body>
                         </rd-widget>
                     </div>

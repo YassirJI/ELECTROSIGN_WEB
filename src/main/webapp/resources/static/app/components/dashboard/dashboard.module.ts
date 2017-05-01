@@ -3,7 +3,7 @@ import { RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';  
 import { FormsModule } from '@angular/forms';
 
-//import { Draggable } from 'ng2draggable/draggable.directive';
+import { ChartsModule } from 'ng2-charts';
  
 import { DashboardComponent } from './dashboard.component.js';
 import { DashboardListComponent } from './dashboard-list.component.js';
@@ -20,6 +20,7 @@ import { DashletService } from './dashlet.service.js';
   imports: [
     CommonModule,
     FormsModule,
+    ChartsModule,
     RouterModule.forChild([
       { path: 'dashboard', component: DashboardComponent },
       { path: 'dashboards', component: DashboardListComponent },

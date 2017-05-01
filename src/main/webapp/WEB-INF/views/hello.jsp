@@ -26,7 +26,7 @@
 <script>
     System.import('/resources/static/build/main.js').catch(function(err){ console.error(err); });
 </script>
-
+<script src="/resources/static/node_modules/chart.js/dist/Chart.bundle.js"></script>
 </div>
 </body>
 </html>

@@ -17,7 +17,11 @@ export class DashboardComponent implements OnInit {
     dashboards: Dashboard[];
     selectedDashlets: Dashlet[];
     selectedDashboard:Dashboard;
-    
+
+    public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+    public doughnutChartData:number[] = [350, 450, 100];
+    public doughnutChartType:string = 'doughnut';
+     
     constructor(private _dashboardService: DashboardService, private _dashletService: DashletService) {
 
     }

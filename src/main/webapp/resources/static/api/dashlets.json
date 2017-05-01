@@ -2,8 +2,8 @@
     {
              "id": 1,
              "title": "Contract Analytics",
-             "content": "<div><ol><li>But I must explain<\/li><\/ol><\/div>",
-             "category": "shart",
+             "content": "<canvas basechart=\"\" width=\"435\" height=\"435\" ng-reflect-data=\"350,450,100\" ng-reflect-labels=\"Download Sales,In-Store Sales,\" ng-reflect-chart-type=\"doughnut\" style=\"display: block;width: 315px;height: 315px;margin: 0 auto;\"></canvas>",
+             "category": "chart",
              "dashboardId":1
     }, 
     {
@@ -30,8 +30,8 @@
     {
              "id": 5,
              "title": "Contract Analytics",
-             "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
-             "category": "shart",
+             "content": "<canvas basechart=\"\" width=\"435\" height=\"435\" ng-reflect-data=\"350,450,100\" ng-reflect-labels=\"Download Sales,In-Store Sales,\" ng-reflect-chart-type=\"doughnut\" style=\"display: block;width: 315px;height: 315px;margin: 0 auto;\"></canvas>",
+             "category": "chart",
              "dashboardId":2
     }, 
     {
