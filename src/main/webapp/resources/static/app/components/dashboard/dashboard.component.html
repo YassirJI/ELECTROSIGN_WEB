@@ -27,24 +27,33 @@
 <div  style="padding: 20px 30px" >
     <div class="wrapper wrapper-content">
         <div class="row">
-                <div *ngFor="let dashlet of selectedDashlets; let i = index">
-                    <div class="clearfix" *ngIf="i % 3 == 0"></div>
-                    <div class="col-lg-4" >
-                        <rd-widget>
-                            <rd-widget-header>
+            <div *ngFor="let dashlet of selectedDashlets;">
+                <div  class="col-lg-{{dashlet.size}}">
+                       <rd-widget>
+                            <rd-widget-header *ngIf="dashlet.title">
                             <h5>{{dashlet.title}}</h5>
                             </rd-widget-header>
-                            <rd-widget-body classes="dashboard-widget-height">
+                            <rd-widget-body>
                                 <div *ngIf="dashlet.category !== 'chart'" [innerHTML]="dashlet.content"></div>
-                                <div *ngIf="dashlet.category === 'chart'" style="display: block; padding-left:60px; padding-right:60px">
+                                <div *ngIf="dashlet.category === 'chart'" style="display: block; padding-left:63px; padding-right:63px">
                                     <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType"
                                                 (chartHover)="chartHovered($event)"
                                                 (chartClick)="chartClicked($event)"></canvas>
                                 </div>
+                                <div *ngIf="dashlet.category === 'chart-2'" style="display: block; padding-left: 155px;padding-right: 155px">
+                                    <canvas baseChart
+                                            [datasets]="barChartData"
+                                            [labels]="barChartLabels"
+                                            [options]="barChartOptions"
+                                            [legend]="barChartLegend"
+                                            [chartType]="barChartType"
+                                            (chartHover)="chartHovered($event)"
+                                            (chartClick)="chartClicked($event)"></canvas>
+                                </div>
                             </rd-widget-body>
                         </rd-widget>
-                    </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>

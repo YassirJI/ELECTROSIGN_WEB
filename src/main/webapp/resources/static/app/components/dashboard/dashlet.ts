@@ -5,4 +5,5 @@ export interface Dashlet {
   content: string;
   category: string;
   dashboardId:number;
+  size:number;
 }
