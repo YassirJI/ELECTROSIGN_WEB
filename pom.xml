@@ -77,10 +77,10 @@
 		<plugins>
 		  <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
-		      <artifactId>maven-compiler-plugin</artifactId>
+		      <artifactId>maven-war-plugin</artifactId>
 		      <configuration>
-			  <failOnMissingWebXml>false</failOnMissingWebXml>
-			</configuration>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
 		    </plugin>
 		    <plugin>
 		      <groupId>org.apache.maven.plugins</groupId>
@@ -117,7 +117,7 @@
 		        <workingDirectory>${project.basedir}/src/main/webapp/resources/static</workingDirectory>
 		      </configuration>
 		      <executions>
-		        <!-- It will install nodejs and npm 
+		        <!-- It will install nodejs and npm 		-->
 		        <execution>
 		          <id>install node and npm</id>
 		          <goals>
@@ -128,7 +128,7 @@
 		            <npmVersion>3.9.5</npmVersion>
 		          </configuration>
 		        </execution>
-		-->
+
 		        <!-- It will execute command "npm install" inside "/static" directory 		-->
 		        <execution>
 		          <id>npm install</id>
