@@ -10,7 +10,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module.js';
   imports: [
     BrowserModule,
     HttpModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], { useHash: true }),
     DashboardModule
   ],
   declarations: [

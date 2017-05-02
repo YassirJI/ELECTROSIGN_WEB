@@ -41,7 +41,6 @@ import { DashletService } from './dashlet.service.js';
     RdWidgetBodyComponent, 
     RdWidgetFooterComponent, 
     RdWidgetHeaderComponent
-//    Draggable
   ],
   providers: [
     DashboardService,
