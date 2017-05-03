@@ -2,22 +2,26 @@
     {
              "id": 1,
              "title": "Contract Analytics",
-             "description": "See Contract Analytics"
+             "description": "See Contract Analytics",
+             "templateImgName" : "My-contacts.png"
     }, 
     {
              "id": 2,
              "title": "Tasks",
-             "description": "See yours todos in your dashboard"
+             "description": "See yours todos in your dashboard",
+             "templateImgName" : "Tag-Graph.png"
     },
     {
              "id": 3,
              "title": "Audit Trail",
-             "description": "See Audit Trail in your dashboard"
+             "description": "See Audit Trail in your dashboard",
+             "templateImgName" : "My-contacts.png"
     }, 
     {
              "id": 4,
              "title": "Expiring Contracts",
              "description": "See Expiring Contracts in your dashboard",
-             "category": "list"
+             "category": "list",
+             "templateImgName" : "Tag-Graph.png"
     }
 ]

@@ -19,7 +19,7 @@
                             <rd-widget-header>
                             <h5>{{category.title}}</h5>
                             </rd-widget-header>
-                            <rd-widget-body >
+                            <rd-widget-body [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">
                                 <div class="panel wrapper b-a text-center">
                                     <div class="text-base"><i class="portlets-modal-icon icon icon-user"></i>				
                                         <b>{{category.title}}</b>
@@ -51,6 +51,16 @@
                                 </div>
                             </div>
                         </div>
+                        <popover-content #myPopover 
+                                        placement="bottom"
+                                        [animation]="true" 
+                                        [closeOnClickOutside]="true"
+                                        [closeOnMouseOutside]="true"
+                                        style="width:500px">
+                            <img src="app/assets/images/{{category.templateImgName}}">
+                        </popover-content>
+
+
                     </div>
                 </div>
             </div>
