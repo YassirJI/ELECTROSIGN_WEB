@@ -27,10 +27,30 @@
                                     <div class="text-flow-ellipsis line-clamp line-clamp-3 m-b widget-text" style="height:60px" rel="tooltip" title="See a list of 50 recently added contacts customizable by filters.">
                                        {{category.description}}
                                         </div>
-                                    <a type="button" class="btn btn-sm btn-default configure-portlets" route="" portlet_type="CONTACTS" portlet_name="Filter Based">Add</a>
+                                    <a type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal" >Add</a>
                                 </div>
                             </rd-widget-body>
                         </rd-widget>
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">Add Dashlet</h4>
+                                </div>
+                                <div class="modal-body">
+                                   <div class="container-fluid">
+                                        <p></p>
+                                        <dual-list [sort]="keepSorted" [source]="sourceDashboards" [key]="key" [display]="display" [filter]="true" [(destination)]="confirmedDashboards" height="265px"></dual-list>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" (click)="addNewDashlet()">Add</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
