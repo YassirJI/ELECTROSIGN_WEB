@@ -21,6 +21,7 @@ export class DashletService {
         return this._http.get(this._dashletUrl)
             .map((response: Response) => <Dashlet[]> response.json())
             .map((dashlets: Dashlet[]) => dashlets.filter(d => d.dashboardId === dashboardId))
+            .map((dashlets: Dashlet[]) => this.orderByPosition(dashlets))
             .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);
     }
@@ -32,6 +33,18 @@ export class DashletService {
             .catch(this.handleError);
     }
 
+    private orderByPosition(values: Dashlet[]) { 
+        return values.sort((a, b) => {
+            if (a.position < b.position) {
+                return -1;
+            }
+            if (a.position > b.position) {
+                return 1;
+            }
+            return 0
+        });
+    }
+    
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
