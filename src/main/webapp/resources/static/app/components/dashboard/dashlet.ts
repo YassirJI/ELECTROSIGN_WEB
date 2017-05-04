@@ -6,4 +6,5 @@ export interface Dashlet {
   category: string;
   dashboardId:number;
   size:number;
+  position:number;
 }

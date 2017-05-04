@@ -10,7 +10,11 @@ import { DashletService } from './dashlet.service.js';
 @Component({
     selector: 'dashboard',
     styles:[
+<<<<<<< HEAD
         '.dropIn { opacity: 0.5;}',
+=======
+        '.dropIn { border: 1px dashed #AAA}',
+>>>>>>> d441d67776316ca69b34b016f42d786d5733b861
         ],
     templateUrl: 'app/components/dashboard/dashboard.component.html'
 })
@@ -80,6 +84,7 @@ export class DashboardComponent implements OnInit {
     }
 
     onDragOver(draggEvent:DragEvent,dashlet:Dashlet):void{
+<<<<<<< HEAD
         let dragedDashlet=this.getDashletById(this.draggedItemid+"");
         if(dashlet.id!==this.draggedItemid && dragedDashlet.size==dashlet.size){
             draggEvent.preventDefault();
@@ -90,12 +95,18 @@ export class DashboardComponent implements OnInit {
         $(".dropIn").each(function(index){
             $(this).removeClass("dropIn");
         });
+=======
+        if(dashlet.id!==this.draggedItemid){
+            draggEvent.preventDefault();
+        }
+>>>>>>> d441d67776316ca69b34b016f42d786d5733b861
     }
 
     onChangeDashboard(dashboard:Dashboard) {
         this.selectedDashboard = dashboard;
         this.findDashlets(dashboard.id);
     }
+<<<<<<< HEAD
 
     findDashlets(dashboardId:number): void {
         this._dashletService.getDashlets(dashboardId)
@@ -107,6 +118,19 @@ export class DashboardComponent implements OnInit {
         let dropedElement=$("."+firstDashletId+"-dashlet");
         let dropedInZoneElement=$("."+secondDashletId+"-dashlet");
 
+=======
+
+    findDashlets(dashboardId:number): void {
+        this._dashletService.getDashlets(dashboardId)
+                        .subscribe(dashlets => this.selectedDashlets = dashlets,
+                                error => this.errorMessage = <any>error);
+    }
+    
+    private swapDashlet(firstDashletId:String,secondDashletId:String): void {
+        let dropedElement=$("."+firstDashletId+"-dashlet");
+        let dropedInZoneElement=$("."+secondDashletId+"-dashlet");
+
+>>>>>>> d441d67776316ca69b34b016f42d786d5733b861
         let dropedElementClone=dropedElement.clone(true,true);
         let dropedInZoneElementClone=dropedInZoneElement.clone(true,true);
         
@@ -114,7 +138,12 @@ export class DashboardComponent implements OnInit {
         dropedInZoneElement.replaceWith(dropedElementClone);
 
         this.attacheDragDropEvent(dropedInZoneElementClone,this.getDashletById(secondDashletId));
+<<<<<<< HEAD
         this.attacheDragDropEvent(dropedElementClone,this.getDashletById(firstDashletId));  
+=======
+        this.attacheDragDropEvent(dropedElementClone,this.getDashletById(firstDashletId));
+        $(".dropIn").removeClass("dropIn");
+>>>>>>> d441d67776316ca69b34b016f42d786d5733b861
     }
 
     private getDashletById(dashletId:String):Dashlet{
@@ -139,9 +168,12 @@ export class DashboardComponent implements OnInit {
             },
             drop:function(event:JQueryEventObject){
                 objectThis.onDrop(event.originalEvent as DragEvent,dashlet);
+<<<<<<< HEAD
             },
             dragend:function(event:JQueryEventObject){
                 objectThis.onDragEnd(event.originalEvent as DragEvent,dashlet);
+=======
+>>>>>>> d441d67776316ca69b34b016f42d786d5733b861
             }
         });
     }
