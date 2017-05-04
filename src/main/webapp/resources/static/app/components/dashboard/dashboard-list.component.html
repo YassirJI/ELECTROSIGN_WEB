@@ -36,7 +36,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor='let dashboard of dashboards | dashboardFilter:listFilter'>
+                                                <tr *ngFor='let dashboard of dashboards | dashboardFilter:listFilter' >
                                                     <td><input icheck type="checkbox" [(ngModel)]='dashboard.id'></td>
                                                     <td>{{dashboard.name}}</td>
                                                     <td>{{dashboard.creationDate }}</td>

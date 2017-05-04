@@ -108,40 +108,14 @@ export class DashboardComponent implements OnInit {
         let dropedElement=$("."+firstDashletId+"-dashlet");
         let dropedInZoneElement=$("."+secondDashletId+"-dashlet");
 
-        let dropedElementClone=dropedElement.clone(true,true);
         let dropedInZoneElementClone=dropedInZoneElement.clone(true,true);
         
-        dropedElement.replaceWith(dropedInZoneElementClone);
-        dropedInZoneElement.replaceWith(dropedElementClone);
-
-        this.attacheDragDropEvent(dropedInZoneElementClone,this.getDashletById(secondDashletId));
-        this.attacheDragDropEvent(dropedElementClone,this.getDashletById(firstDashletId));  
+        dropedElement.before(dropedInZoneElementClone).detach();
+        dropedInZoneElement.before(dropedElement).detach();
+        dropedInZoneElementClone.before(dropedInZoneElement).remove();
     }
 
     private getDashletById(dashletId:String):Dashlet{
         return this.selectedDashlets.find(dashlet => dashlet.id+""==dashletId);
-    }
-
-    private attacheDragDropEvent(DomObject:JQuery,dashlet:Dashlet){
-        var objectThis=this;
-        DomObject.unbind();
-        DomObject.bind({
-            dragstart: function(event:JQueryEventObject){
-                objectThis.onDrag(event.originalEvent as DragEvent,dashlet);
-            },
-            dragenter:function(event:JQueryEventObject){
-                objectThis.onDragEnter(event.originalEvent as DragEvent,dashlet);
-            },
-            dragleave:function(event:JQueryEventObject){
-                objectThis.onDragleave(event.originalEvent as DragEvent,dashlet);
-            },
-            dragover:function(event:JQueryEventObject){
-                objectThis.onDragOver(event.originalEvent as DragEvent,dashlet);
-            },
-            drop:function(event:JQueryEventObject){
-                objectThis.onDrop(event.originalEvent as DragEvent,dashlet);
-                objectThis.onDragEnd(event.originalEvent as DragEvent,dashlet);
-            }
-        });
     }
 }
