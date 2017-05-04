@@ -23,12 +23,11 @@
                 </div>
             </nav>
 </div>
-
 <div  style="padding: 20px 30px" >
     <div class="wrapper wrapper-content">
         <div class="row">
             <div *ngFor="let dashlet of selectedDashlets;">
-                <div  class="col-lg-{{dashlet.size}}">
+                <div class="col-lg-{{dashlet.size}} {{dashlet.id}}-dashlet" draggable="true" (dragstart)="onDrag($event,dashlet)" (dragenter)="onDragEnter($event,dashlet)" (dragleave)="onDragleave($event,dashlet)" (drop)="onDrop($event,dashlet)" (dragover)="onDragOver($event,dashlet)">
                        <rd-widget>
                             <rd-widget-header *ngIf="dashlet.title">
                             <h5>{{dashlet.title}}</h5>

@@ -5,60 +5,69 @@
              "content": "<canvas basechart=\"\" width=\"435\" height=\"435\" ng-reflect-data=\"350,450,100\" ng-reflect-labels=\"Download Sales,In-Store Sales,\" ng-reflect-chart-type=\"doughnut\" style=\"display: block;width: 315px;height: 315px;margin: 0 auto;\"></canvas>",
              "category": "chart-2",
              "dashboardId":1,
-             "size": 8
+             "size": 8,
+             "position": 1
     }, {
              "id": 13,
              "content": " <h1 class=\"no-margins text-navy\">7</h1><small>New contacts</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 2
     },
     {
              "id": 14,
              "content": " <h1 class=\"no-margins text-warning\">13</h1><small>Compaign emails sent</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 3
     },
     {
              "id": 15,
              "content": " <h1 class=\"no-margins text-danger\">$0</h1><small>Wom from 0 deals</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 4
     },
     {
              "id": 16,
              "content": " <h1 class=\"no-margins\">$0</h1><small>New deals worth</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 5
     }, {
              "id": 17,
              "content": " <h1 class=\"no-margins text-danger\">$0</h1><small>Wom from 0 deals</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 6
     },
     {
              "id": 18,
              "content": " <h1 class=\"no-margins\">$0</h1><small>New deals worth</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 7
     }, {
-             "id": 17,
+             "id": 19,
              "content": " <h1 class=\"no-margins text-danger\">$0</h1><small>Wom from 0 deals</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 8
     },
     {
-             "id": 18,
+             "id": 20,
              "content": " <h1 class=\"no-margins\">$0</h1><small>New deals worth</small>",
              "category": "list",
              "dashboardId":1,
-             "size": 2
+             "size": 2,
+             "position": 9
     },
     {
              "id": 1,
@@ -66,7 +75,8 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":1,
-             "size": 4
+             "size": 4,
+             "position": 10
     },
     {
              "id": 3,
@@ -74,7 +84,8 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":1,
-             "size": 4
+             "size": 4,
+             "position": 11
     },  
     {
              "id": 4,
@@ -82,7 +93,8 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":3,
-             "size": 4
+             "size": 4,
+             "position": 12
     },
     {
              "id": 5,
@@ -90,7 +102,8 @@
              "content": "<canvas basechart=\"\" width=\"435\" height=\"435\" ng-reflect-data=\"350,450,100\" ng-reflect-labels=\"Download Sales,In-Store Sales,\" ng-reflect-chart-type=\"doughnut\" style=\"display: block;width: 315px;height: 315px;margin: 0 auto;\"></canvas>",
              "category": "chart",
              "dashboardId":2,
-             "size": 4
+             "size": 4,
+             "position": 13
     }, 
     {
              "id": 6,
@@ -98,7 +111,8 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":3,
-             "size": 4
+             "size": 4,
+             "position": 14
     },
     {
              "id": 7,
@@ -106,7 +120,8 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":2,
-             "size": 4
+             "size": 4,
+             "position": 15
     }, 
     {
              "id": 8,
@@ -114,43 +129,49 @@
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":1,
-             "size": 4
+             "size": 4,
+             "position": 16
     },
     {
-             "id": 8,
-             "title": "Audit Trail",
-             "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
-             "category": "list",
-             "dashboardId":3,
-             "size": 4
-    }, {
              "id": 9,
              "title": "Audit Trail",
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":3,
-             "size": 4
+             "size": 4,
+             "position": 17
     }, {
              "id": 10,
+             "title": "Audit Trail",
+             "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
+             "category": "list",
+             "dashboardId":3,
+             "size": 4,
+             "position": 18
+    }, {
+             "id": 11,
              "title": "Tasks",
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/task.jpg\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":2,
-             "size": 4
+             "size": 4,
+             "position": 19
     },{
-             "id": 11,
+             "id": 12,
              "title": "Audit Trail",
              "content": "<div class=\"feed-activity-list\"><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Mark Johnson<\/strong> posted message on <strong>Monica Smith<\/strong> site. <br><small class=\"text-muted\">Today 2:10 pm - 12.06.2014<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">2h ago<\/small><strong>Janet Rosowski<\/strong> add 1 photo on <strong>Monica Smith<\/strong>. <br><small class=\"text-muted\">2 days ago at 8:30am<\/small><\/div><\/div><div class=\"feed-element\"><a ui-sref=\"profile\" class=\"pull-left\"><img alt=\"image\" class=\"img-circle\" src=\".\/app\/assets\/images\/profile.png\"><\/a><div class=\"media-body \"><small class=\"pull-right\">5m ago<\/small><strong>Monica Smith<\/strong> posted a new blog. <br><small class=\"text-muted\">Today 5:60 pm - 12.06.2014<\/small><\/div><\/div><\/div><a class=\"btn btn-primary btn-block m-t\"><i class=\"fa fa-arrow-down\"><\/i> Show More<\/a>",
              "category": "list",
              "dashboardId":2,
-             "size": 4
+             "size": 4,
+             "position": 20
     },
     {
-             "id": 12,
+             "id": 21,
              "title": "Contract Analytics",
              "content": "<canvas basechart=\"\" width=\"435\" height=\"435\" ng-reflect-data=\"350,450,100\" ng-reflect-labels=\"Download Sales,In-Store Sales,\" ng-reflect-chart-type=\"doughnut\" style=\"display: block;width: 315px;height: 315px;margin: 0 auto;\"></canvas>",
              "category": "chart",
              "dashboardId":3,
-             "size": 4
+             "size": 4,
+             "position": 21
     }
 ]
