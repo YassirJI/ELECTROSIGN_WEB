@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
     }
 
     onDragleave(draggEvent:Event,dashlet:Dashlet):void{
-        if(dashlet.id!==this.dropAreaItemid && this.dropAreaItemid!==this.draggedItemid){
+        if(dashlet.id!==this.dropAreaItemid ){
             let element = $("."+dashlet.id+"-dashlet");
             element.removeClass("dropIn");
         }
@@ -87,6 +87,7 @@ export class DashboardComponent implements OnInit {
     }
 
     onDragEnd(draggEvent:DragEvent,dashlet:Dashlet):void{
+        console.log("dragEnd");
         $(".dropIn").each(function(index){
             $(this).removeClass("dropIn");
         });
@@ -139,8 +140,6 @@ export class DashboardComponent implements OnInit {
             },
             drop:function(event:JQueryEventObject){
                 objectThis.onDrop(event.originalEvent as DragEvent,dashlet);
-            },
-            dragend:function(event:JQueryEventObject){
                 objectThis.onDragEnd(event.originalEvent as DragEvent,dashlet);
             }
         });
