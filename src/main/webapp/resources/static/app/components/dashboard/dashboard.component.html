@@ -27,7 +27,7 @@
     <div class="wrapper wrapper-content">
         <div class="row">
             <div *ngFor="let dashlet of selectedDashlets;">
-                <div class="col-lg-{{dashlet.size}} {{dashlet.id}}-dashlet" draggable="true" (dragstart)="onDrag($event,dashlet)" (dragenter)="onDragEnter($event,dashlet)" (dragleave)="onDragleave($event,dashlet)" (drop)="onDrop($event,dashlet)" (dragover)="onDragOver($event,dashlet)">
+                <div class="col-lg-{{dashlet.size}} {{dashlet.id}}-dashlet" draggable="true" (dragstart)="onDrag($event,dashlet)" (dragenter)="onDragEnter($event,dashlet)" (dragleave)="onDragleave($event,dashlet)" (drop)="onDrop($event,dashlet)" (dragover)="onDragOver($event,dashlet)" (dragend)="onDragEnd($event,dashlet)">
                        <rd-widget>
                             <rd-widget-header *ngIf="dashlet.title">
                             <h5>{{dashlet.title}}</h5>

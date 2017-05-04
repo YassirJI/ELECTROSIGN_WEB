@@ -10,7 +10,7 @@ import { DashletService } from './dashlet.service.js';
 @Component({
     selector: 'dashboard',
     styles:[
-        '.dropIn { border: 1px dashed #AAA}',
+        '.dropIn { opacity: 0.5;}',
         ],
     templateUrl: 'app/components/dashboard/dashboard.component.html'
 })
@@ -80,9 +80,16 @@ export class DashboardComponent implements OnInit {
     }
 
     onDragOver(draggEvent:DragEvent,dashlet:Dashlet):void{
-        if(dashlet.id!==this.draggedItemid){
+        let dragedDashlet=this.getDashletById(this.draggedItemid+"");
+        if(dashlet.id!==this.draggedItemid && dragedDashlet.size==dashlet.size){
             draggEvent.preventDefault();
         }
+    }
+
+    onDragEnd(draggEvent:DragEvent,dashlet:Dashlet):void{
+        $(".dropIn").each(function(index){
+            $(this).removeClass("dropIn");
+        });
     }
 
     onChangeDashboard(dashboard:Dashboard) {
@@ -107,8 +114,7 @@ export class DashboardComponent implements OnInit {
         dropedInZoneElement.replaceWith(dropedElementClone);
 
         this.attacheDragDropEvent(dropedInZoneElementClone,this.getDashletById(secondDashletId));
-        this.attacheDragDropEvent(dropedElementClone,this.getDashletById(firstDashletId));
-        $(".dropIn").removeClass("dropIn");
+        this.attacheDragDropEvent(dropedElementClone,this.getDashletById(firstDashletId));  
     }
 
     private getDashletById(dashletId:String):Dashlet{
@@ -133,6 +139,9 @@ export class DashboardComponent implements OnInit {
             },
             drop:function(event:JQueryEventObject){
                 objectThis.onDrop(event.originalEvent as DragEvent,dashlet);
+            },
+            dragend:function(event:JQueryEventObject){
+                objectThis.onDragEnd(event.originalEvent as DragEvent,dashlet);
             }
         });
     }
