@@ -1,0 +1,79 @@
+<style>
+.table > tbody > tr > td{
+    padding: 5px;
+    border-top: none;
+    font-size: 14px;
+}
+</style>
+
+<rd-widget>
+    <rd-widget-header>
+        <h5>Add Documents</h5>
+    </rd-widget-header>
+    <rd-widget-body >
+            <div class="container">
+                <div class="row">
+            
+                    <div class="col-md-3">
+                        <input type="file" ng2FileSelect [uploader]="uploader" class="btn btn-block btn-primary"/>    
+                    </div>
+            
+                    <div class="col-md-9" style="margin-bottom: 40px">
+            
+                        <h3>Added documents ({{ uploader?.queue?.length }})</h3>
+                        
+                        <table class="table">
+                            <tbody>
+                            <tr *ngFor="let item of uploader.queue">
+                                <td>{{ item?.file?.name }}</td>
+                                <td class="text-center">
+                                    <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
+                                    <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                    <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-success btn-xs"
+                                            (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-xs"
+                                            (click)="item.cancel()" [disabled]="!item.isUploading">
+                                        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs"
+                                            (click)="item.remove()">
+                                        <span class="glyphicon glyphicon-trash"></span> Remove
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+            
+                        <div>
+                            <div>
+                                Queue progress:
+                                <div class="progress" style="">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-s"
+                                    (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+                                <span class="glyphicon glyphicon-upload"></span> Upload all
+                            </button>
+                            <button type="button" class="btn btn-warning btn-s"
+                                    (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                                <span class="glyphicon glyphicon-ban-circle"></span> Cancel all
+                            </button>
+                            <button type="button" class="btn btn-danger btn-s"
+                                    (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                                <span class="glyphicon glyphicon-trash"></span> Remove all
+                            </button>
+                        </div>
+            
+                    </div>
+            
+                </div>
+            
+            </div>
+    </rd-widget-body>
+</rd-widget>

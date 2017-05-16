@@ -23,8 +23,6 @@ dist/
 nbdist/
 .nb-gradle/
 
-
-src/main/webapp/resources/static/node_modules
 src/main/webapp/resources/static/dist
 src/main/webapp/resources/temp
 src/main/webapp/resources/static/app/**/*.js
@@ -33,3 +31,5 @@ src/main/webapp/resources/static/main.js
 src/main/webapp/resources/static/main.js.map
 src/main/webapp/resources/static/node
 src/main/webapp/resources/static/node_modules
+
+src/main/webapp/resources/static/npm-debug.log

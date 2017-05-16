@@ -1,0 +1,66 @@
+<div class="border-bottom">
+             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class='container-fluid' style="padding: 20px 30px;">
+                    <div class="row">
+                        <div class="col-lg-8"> 
+                            <h3>Prepare & Send a document</h3>
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a>Manage contracts</a>
+                                </li>
+                                <li class="active">
+                                    <strong>Prepare document</strong>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="col-lg-4">
+                             
+                        </div>
+                    </div>
+                </div>
+            </nav>
+</div>
+
+<form novalidate (ngSubmit)="onSubmit(signDocumentForm)" [formGroup]="signDocumentForm">
+<div class="wrapper wrapper-content" style="padding: 20px 30px" >
+            <div class="row">
+                <div class="col-lg-8">
+                    <document-uploader></document-uploader>
+                </div>
+            </div>
+</div>
+
+<div class="wrapper wrapper-content" style="padding: 20px 30px" >
+            <div class="row">
+                <div class="col-lg-8">
+                    <recipient-adder [group]="signDocumentForm.controls.recipientForm"></recipient-adder>
+                </div>
+            </div>
+</div>
+
+
+    
+<div class="wrapper wrapper-content" style="padding: 20px 30px" >
+            <div class="row">
+                <div class="col-lg-8">
+                    <prepare-email-form [group]="signDocumentForm.controls.emailForm"></prepare-email-form>
+                </div>
+            </div>
+</div>
+
+<div class="wrapper row form-group text-right">
+                <div class="col-lg-8">
+                    <button [routerLink]="['/prepare/send']" (click)="onSubmit(signDocumentForm)" class="btn btn-success btn-outline-rounded btn-info" [disabled]="signDocumentForm.invalid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                </div>
+</div>
+
+<div class="margin-20">
+          <div>Form details:-</div>
+          <pre>Is Form valid?: <br>{{signDocumentForm.valid | json}}</pre>
+          <pre>form value: <br>{{signDocumentForm.value | json}}</pre>
+        </div>
+
+</form>

@@ -1,0 +1,75 @@
+<div class="border-bottom">
+             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class='container-fluid' style="padding: 20px 30px;">
+                    <div class="row">
+                        <div class="col-lg-8"> 
+                            <h3>My documents</h3>
+                        </div>
+                        <div class="col-lg-4">
+                             <button type="button" class="btn btn-sm btn-primary pull-right"
+                                [routerLink]="['/prepare']"> New</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+</div>
+    
+<div class="wrapper wrapper-content" style="padding: 20px 30px" >
+            <div class="row">
+                <div class="col-lg-8">
+                    <rd-widget>
+                        <rd-widget-body >
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-6 pull-right">
+                                            <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control" [(ngModel)]='listFilter'> <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>  </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped"
+                                        *ngIf='signDocuments && signDocuments.length'>
+                                            <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Name</th>
+                                                <th>Status</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor='let signDocument of signDocuments | documentFilter:listFilter' >
+                                                    <td><input icheck type="checkbox" [(ngModel)]='signDocument.id'></td>
+                                                    <td>
+                                                        <a href="#">
+                                                            {{signDocument.emailSubject}}
+                                                        <span *ngFor='let document of signDocument.documents'>
+                                                             {{document.name}}
+                                                        </span>
+                                                        </a><br/>
+                                                        <small class="text-muted">
+                                                            To : 
+                                                            <span *ngFor='let signer of signDocument.recipients.signers'>
+                                                             {{signer.name}}
+                                                            </span>
+                                                        </small>
+                                                    </td>
+                                                    <td>
+                                                        {{signDocument.status | uppercase}}<br/>
+                                                        <small class="text-muted">
+                                                            <span  *ngIf='signDocument.updateDate'>
+                                                            Last update : {{signDocument.updateDate }}
+                                                            </span>
+                                                            <span  *ngIf='!signDocument.updateDate'>
+                                                            Creatted on : {{signDocument.creationDate }}
+                                                            </span>
+                                                        </small>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <footer ><a href="#" class="btn btn-danger btn-sm" id="delete-checked"> Delete</a></footer>
+                                    </div>         
+                        </rd-widget-body>
+                    </rd-widget>
+                </div>
+            </div>
+</div>

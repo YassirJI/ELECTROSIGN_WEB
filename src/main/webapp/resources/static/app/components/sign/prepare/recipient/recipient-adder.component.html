@@ -1,0 +1,48 @@
+ <rd-widget>
+    <rd-widget-header>
+        <h5>Add Recipients</h5>
+    </rd-widget-header>
+    <rd-widget-body >
+        <div class="container">
+            <div class="row">
+              <div class="col-xs-12" [formGroup]="recipientForm">
+                <div class="margin-20">
+                  <p>As the sender, you automatically receive a copy of the completed documents.</p>
+                </div>
+                  <!--recipients-->
+                  <div formArrayName="recipients">
+                    <div *ngFor="let recipient of recipientForm.controls.recipients.controls; let i=index" class="panel panel-default">
+                      <div class="panel-heading">
+                        <span>Recipient {{i + 1}}</span>
+                        <span class="glyphicon glyphicon-remove pull-right" *ngIf="recipientForm.controls.recipients.controls.length > 1" (click)="removeRecipient(i)"></span>
+                      </div>
+                      <div class="panel-body" [formGroupName]="i">
+                        <div class="form-group col-xs-6">
+                          <label>Name</label>
+                          <input type="text" class="form-control" formControlName="name">
+                          <small [hidden]="recipientForm.controls.recipients.controls[i].controls.name.valid" class="text-danger">
+                              Name is required
+                          </small>
+                        </div>
+                        <div class="form-group col-xs-6">
+                          <label>Email</label>
+                          <input type="text" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" class="form-control" formControlName="email">
+                          <small [hidden]="recipientForm.controls.recipients.controls[i].controls.email.valid" class="text-danger">
+                              Email is required and must be valid
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="margin-20">
+                    <a (click)="addRecipient()" style="cursor: default">
+                      Add another recipient +
+                    </a>
+                  </div>
+                  <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+    </rd-widget-body>
+</rd-widget>
