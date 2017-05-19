@@ -16,6 +16,11 @@ import { DocumentUploaderComponent } from './uploader/document-uploader.componen
 import { DocumentViewerComponent } from './viewer/document-viewer.component';
 import { RecipientAdderComponent } from './recipient/recipient-adder.component'
 import { PrepareEmailFormComponent } from './email/email-form.component'
+import { FileUpload } from './uploader/fileupload'
+import { ButtonModule } from './uploader/button/button';
+import { ProgressBarModule } from './uploader/progressbar/progressbar';
+import { MessagesModule } from './uploader/messages/messages';
+import { SharedModuleUp, TemplateLoader } from './uploader/common/shared';
 
 import { FileUploadModule } from "ng2-file-upload/file-upload/file-upload.module";
 import { SharedModule} from "../../shared/shared.module";
@@ -26,6 +31,9 @@ import { SharedModule} from "../../shared/shared.module";
                     ReactiveFormsModule,
                     FileUploadModule,
                     SharedModule,
+                    ButtonModule,
+                    ProgressBarModule,
+                    MessagesModule,
                     RouterModule.forChild([
                      { path: 'prepare', component: PrepareSignInformationComponent },
                      { path: 'prepare/send', component: PrepareSignMarkerComponent }
@@ -41,7 +49,9 @@ import { SharedModule} from "../../shared/shared.module";
                     PrepareEmailFormComponent,
                     DocumentUploaderComponent,
                     DocumentViewerComponent,
-                    RecipientAdderComponent ],
+                    RecipientAdderComponent,
+                    FileUpload,
+                    TemplateLoader ],
     exports:      [ PrepareComponent]
 })
 

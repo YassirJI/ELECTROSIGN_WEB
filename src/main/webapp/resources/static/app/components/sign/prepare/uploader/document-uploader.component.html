@@ -13,8 +13,15 @@
     <rd-widget-body >
             <div class="container">
                 <div class="row">
-            
-                    <div class="col-md-3">
+                    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000"> 
+                            <ng-template pTemplate="content">
+                                <ul *ngIf="uploadedFiles.length">
+                                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                                </ul>
+                            </ng-template>    
+                    </p-fileUpload>
+
+                    <!--<div class="col-md-3">
                         <input type="file" ng2FileSelect [uploader]="uploader" class="btn btn-block btn-primary"/>    
                     </div>
             
@@ -71,9 +78,11 @@
                         </div>
             
                     </div>
-            
+                    -->
                 </div>
             
             </div>
     </rd-widget-body>
 </rd-widget>
+
+
