@@ -12,7 +12,7 @@ export class DocumentViewerComponent {
     pageNum: number = 1;
     pageCount: number;
     zoomValue: number = 1;
-   reader  = new FileReader();
+
    constructor(private prepareFormDataService: PrepareFormDataService){}
    
    
@@ -23,7 +23,7 @@ export class DocumentViewerComponent {
     isPdf(file: File): boolean {
         return /^pdf\//.test(file.type);
     }
-
+    
    callBackFn(pdf: PDFDocumentProxy) {
       this.pageCount = pdf.numPages;
    }

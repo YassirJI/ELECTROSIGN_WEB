@@ -5,15 +5,14 @@
     <rd-widget-body >
             <div class="container">
                 <div class="row">
-                    <p-fileUpload name="documentUpload[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple"  maxFileSize="1000000"> 
+                    <p-fileUpload name="documentUpload[]" (onUpload)="onUpload($event)" multiple="multiple"  maxFileSize="1000000"> 
                             <ng-template pTemplate="content">
                                 <ul *ngIf="uploadedFiles.length">
                                     <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
                                 </ul>
                             </ng-template>    
                     </p-fileUpload>
-                </div>
-            
+                </div>            
             </div>
     </rd-widget-body>
 </rd-widget>

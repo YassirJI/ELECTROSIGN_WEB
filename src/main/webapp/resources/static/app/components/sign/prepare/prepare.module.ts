@@ -22,14 +22,12 @@ import { ProgressBarModule } from './uploader/progressbar/progressbar';
 import { MessagesModule } from './uploader/messages/messages';
 import { SharedModuleUp, TemplateLoader } from './uploader/common/shared';
 
-import { FileUploadModule } from "ng2-file-upload/file-upload/file-upload.module";
 import { SharedModule} from "../../shared/shared.module";
 
 @NgModule({
     imports:      [ BrowserModule, 
                     FormsModule,
                     ReactiveFormsModule,
-                    FileUploadModule,
                     SharedModule,
                     ProgressBarModule,
                     MessagesModule,
