@@ -1,7 +1,7 @@
 import { Document } from './document';
 import { Recipient } from './recipient';
 
-export interface SignDocument {
+export class SignDocument {
 
   id?: number;
   status?: string;
@@ -9,6 +9,6 @@ export interface SignDocument {
   emailContent: string;
   creationDate?: string;
   updateDate?: string;
-  documents?: Document[];
-  recipients?: Recipient[];
+  documents?: Document[] = new Array<Document>();;
+  recipients?: Recipient[] = new Array<Recipient>();
 }

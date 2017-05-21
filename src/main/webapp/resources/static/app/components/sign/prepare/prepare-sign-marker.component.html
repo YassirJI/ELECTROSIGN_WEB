@@ -24,10 +24,31 @@
             </nav>
 </div>
 <form novalidate (ngSubmit)="onSubmit(markDocumentForm)"> <!--[formGroup]="signDocumentForm">!-->
+
+    <div class="wrapper wrapper-content" style="padding: 20px 30px" >
+                <div class="row">
+                    <div class="col-lg-8">
+                        <prepare-navbar></prepare-navbar>
+                    </div>
+                </div>
+    </div>
+
     <div class="wrapper wrapper-content" style="padding: 20px 30px" >
                 <div class="row">
                     <div class="col-lg-8">
                         <document-viewer></document-viewer>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="dropdown" style="z-index:4">
+                            <button class="btn btn-default dropdown-toggle wrapper-dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               {{selectedRecipient?.name}}
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let recipient of recipients" > 
+                                        <a (click)="onChangeRecipient(recipient)">{{recipient.name}}</a>
+                                    </li>
+                                </ul> 
+                            </div>
                     </div>
                 </div>
     </div>

@@ -14,8 +14,9 @@ import { PrepareSignMarkerComponent } from './prepare-sign-marker.component';
 
 import { DocumentUploaderComponent } from './uploader/document-uploader.component';
 import { DocumentViewerComponent } from './viewer/document-viewer.component';
-import { RecipientAdderComponent } from './recipient/recipient-adder.component'
-import { PrepareEmailFormComponent } from './email/email-form.component'
+import { RecipientAdderComponent } from './recipient/recipient-adder.component';
+import { PrepareEmailFormComponent } from './email/email-form.component';
+import { NavbarComponent }    from './navbar/navbar.component';
 
 import { FileUploadModule } from "ng2-file-upload/file-upload/file-upload.module";
 import { SharedModule} from "../../shared/shared.module";
@@ -41,7 +42,8 @@ import { SharedModule} from "../../shared/shared.module";
                     PrepareEmailFormComponent,
                     DocumentUploaderComponent,
                     DocumentViewerComponent,
-                    RecipientAdderComponent ],
+                    RecipientAdderComponent ,
+                    NavbarComponent],
     exports:      [ PrepareComponent]
 })
 

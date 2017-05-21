@@ -1,61 +1,40 @@
-import { Injectable }                        from '@angular/core';
-
-import { PrepareFormData }       from './prepareFormData.model';
+import { Injectable } from '@angular/core';
 
 import { SignDocument } from '../../../../model/sign/sign-document';
+import { Recipient } from '../../../../model/sign/recipient';
 
 @Injectable()
 export class PrepareFormDataService {
 
-    private formData: PrepareFormData = new PrepareFormData();
+    private signDocument: SignDocument = new SignDocument();
     private isRecipientFormValid: boolean = false;
     private isEmailFormValid: boolean = false;
 
     getSignDocument(): SignDocument {
-        var signDocument: SignDocument = {
-            emailSubject: this.formData.emailSubject,
-            emailContent: this.formData.emailContent
-        };
-        return signDocument;
+        return this.signDocument;
     }
 
-    setSignDocument(data: SignDocument) {
+    setEmailData(data: any) {
         this.isEmailFormValid = true;
-        this.formData.emailSubject = data.emailSubject;
-        this.formData.emailContent = data.emailContent;
+        this.signDocument.emailSubject = data.emailSubject;
+        this.signDocument.emailContent = data.emailContent;
     }
 
-    getEmailSubject() : string {
-        return this.formData.emailSubject;
-    }
-    
-    setEmailSubject(data: string) {
-        this.isEmailFormValid = true;
-        this.formData.emailSubject = data;
-    }
-
-    getEmailContent() : string { 
-        return this.formData.emailContent;
-    }
-    
-    setEmailContent(data: string) {
-        this.isEmailFormValid = true;
-        this.formData.emailContent = data;
+    setRecipientsData(data: any[]) {
+        this.signDocument.recipients = [];
+        this.isRecipientFormValid = true;
+        data.forEach(recipientData => {
+            var recipient : Recipient = { name: recipientData.name, email:recipientData.email};
+            this.signDocument.recipients.push(recipient);
+        });
     }
 
-
-    getFormData(): PrepareFormData {
-        return this.formData;
-    }
-
-    resetFormData(): PrepareFormData {
-        this.formData.clear();
-       // this.isPersonalFormValid = this.isWorkFormValid = this.isAddressFormValid = false;
-        return this.formData;
+    resetPrepareFormData(): SignDocument {
+        this.signDocument = new SignDocument();
+       return this.signDocument;
     }
 
     isFormValid() {
-        // Return true if all forms had been validated successfully; otherwise, return false
         return this.isEmailFormValid ;
     }
 }

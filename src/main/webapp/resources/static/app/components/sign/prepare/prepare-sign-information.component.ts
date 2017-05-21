@@ -11,36 +11,52 @@ import { SignDocument } from '../../../model/sign/sign-document';
 })
 export class PrepareSignInformationComponent implements OnInit {
 
-    signDocumentForm: FormGroup;
-    signDocument: SignDocument;
-
+    private signDocumentForm: FormGroup;
+    
     constructor(private fb: FormBuilder, private formDataService: PrepareFormDataService) { }
 
     ngOnInit() {
-        this.signDocument = this.formDataService.getSignDocument();
-
+        
         this.signDocumentForm = this.fb.group({
-            emailForm: this.fb.group({
-                emailSubject: new FormControl('', Validators.required),
-                emailContent: new FormControl('', Validators.required)
+            emailForm: new FormGroup({
+                emailSubject: new FormControl(this.formDataService.getSignDocument().emailSubject, Validators.required),
+                emailContent: new FormControl(this.formDataService.getSignDocument().emailContent, Validators.required)
             })
-            /**  , recipientForm: this.fb.group({
-                 recipients: this.fb.array([
-                      this.fb.group({
-                          name: new FormControl('', Validators.required),
-                          email: new FormControl('', Validators.required)
-                      })
-                  ])
-              })*/
+            , recipientForm: this.fb.group({
+                 recipients: this.fb.array(this.initRecipientsForm())
+              })
         });
     }
 
 
-    onSubmit({ value, valid }: { value: SignDocument, valid: boolean }) {
+    initRecipientsForm() {
+        var recipientsData:any[] = [];
+        if(this.formDataService.getSignDocument().recipients.length == 0) {
+             recipientsData.push(
+                this.fb.group({
+                          name: new FormControl('', Validators.required),
+                          email: new FormControl('', Validators.required)
+                      })
+            )
+        } else {
+            this.formDataService.getSignDocument().recipients.forEach(recipient => {
+                recipientsData.push(
+                    this.fb.group({
+                            name: new FormControl(recipient.name, Validators.required),
+                            email: new FormControl(recipient.email, Validators.required)
+                        })
+                )
+            });
+        }
+        return recipientsData;
+    }
+
+    onSubmit({ value, valid }: { value: any, valid: boolean }) {
         if (!valid)
             return;
 
-        this.formDataService.setSignDocument(value);
+        this.formDataService.setEmailData(value.emailForm);
+        this.formDataService.setRecipientsData(value.recipientForm.recipients);
         console.log(value, valid);
     }
 

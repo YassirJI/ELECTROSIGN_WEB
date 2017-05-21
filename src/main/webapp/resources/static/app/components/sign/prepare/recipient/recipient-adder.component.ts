@@ -16,11 +16,7 @@ export class RecipientAdderComponent {
     constructor(private _fb: FormBuilder) { }
 
     ngOnInit() {
-        this.recipientForm = this._fb.group({
-            recipients: this._fb.array([
-                this.initRecipient(),
-            ])
-        });
+
     }
 
     initRecipient() {

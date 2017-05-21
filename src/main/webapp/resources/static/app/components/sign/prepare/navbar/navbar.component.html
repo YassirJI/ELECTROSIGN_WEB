@@ -1,0 +1,30 @@
+<div class="board board-inner" id="status-buttons">
+    <ul class="nav nav-tabs sign-navbar" id="myTab">
+        <div class="liner"></div>
+                    
+        <li  [ngClass]="{'active' : isPrepareStep}">
+            <a data-toggle="tab" title="prepare">
+                <span class="round-tabs one">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                </span>
+            </a>
+        </li>
+
+         <li>
+            <a data-toggle="tab" title="send">
+                <span class="round-tabs two">
+                    <i class="glyphicon glyphicon-tasks"></i>
+                </span> 
+            </a>
+        </li>
+
+        <li>
+            <a data-toggle="tab" title="completed">
+                <span class="round-tabs three">
+                    <i class="glyphicon glyphicon-ok"></i>
+                </span>
+            </a>
+        </li>
+                
+    </ul>
+</div>

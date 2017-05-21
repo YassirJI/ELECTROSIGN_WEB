@@ -1,6 +1,6 @@
 export interface Recipient {
 
-  id: number;
+  id?: number;
   name: string;
   email: string;
 }
