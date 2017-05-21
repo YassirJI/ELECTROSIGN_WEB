@@ -1,4 +1,4 @@
-export interface Recipient {
+export class Recipient {
 
   id?: number;
   name: string;

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 
 import { SignDocument } from '../../../../model/sign/sign-document';

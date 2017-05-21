@@ -1,4 +1,4 @@
-export interface Document {
+export class Document {
 
   id: number;
   name: string;

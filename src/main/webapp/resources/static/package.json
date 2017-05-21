@@ -31,7 +31,6 @@
     "systemjs": "0.19.40",
     "zone": "^0.3.4",
     "zone.js": "^0.8.10",
-    "ng2-file-upload": "^1.2.1",
     "ng2-pdf-viewer": "^1.1.0"
   },
   "devDependencies": {
@@ -53,7 +52,7 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.17.0",
     "tslint": "^3.15.1",
-    "typescript": "~2.1.0",
+    "typescript": "^2.3.2",
     "webpack": "^2.5.1",
     "webpack-dev-server": "^2.4.5"
   },
