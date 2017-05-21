@@ -9,7 +9,8 @@ export class PrepareFormDataService {
     private signDocument: SignDocument = new SignDocument();
     private isRecipientFormValid: boolean = false;
     private isEmailFormValid: boolean = false;
-
+    public files: File[];
+    
     getSignDocument(): SignDocument {
         return this.signDocument;
     }
@@ -18,6 +19,14 @@ export class PrepareFormDataService {
         this.isEmailFormValid = true;
         this.signDocument.emailSubject = data.emailSubject;
         this.signDocument.emailContent = data.emailContent;
+    }
+    
+    setUploadedFiles(data: any[]) {
+        this.files = data;
+        
+        for(let i = 0; i < this.files.length; i++) {
+            console.log(this.files[i], this.files[i].name);
+        }
     }
 
     setRecipientsData(data: any[]) {

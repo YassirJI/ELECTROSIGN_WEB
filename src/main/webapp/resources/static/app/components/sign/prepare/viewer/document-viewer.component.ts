@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
- 
+
+import { PrepareFormDataService } from '../data/prepareFormData.service';
  
 @Component({
   selector: 'document-viewer',
@@ -11,6 +12,17 @@ export class DocumentViewerComponent {
     pageNum: number = 1;
     pageCount: number;
     zoomValue: number = 1;
+   reader  = new FileReader();
+   constructor(private prepareFormDataService: PrepareFormDataService){}
+   
+   
+    isImage(file: File): boolean {
+        return /^image\//.test(file.type);
+    }
+
+    isPdf(file: File): boolean {
+        return /^pdf\//.test(file.type);
+    }
 
    callBackFn(pdf: PDFDocumentProxy) {
       this.pageCount = pdf.numPages;

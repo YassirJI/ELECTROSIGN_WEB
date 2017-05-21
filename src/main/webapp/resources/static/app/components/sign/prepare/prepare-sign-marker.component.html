@@ -56,7 +56,7 @@
     <div class="wrapper row form-group text-right">
                     <div class="col-lg-8">
                         <button [routerLink]="['/prepare']" class="btn btn-outline-rounded btn-default"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
-                        <button class="btn btn-success btn-outline-rounded" [disabled]="!isFormValid" (click)="onSubmit(markDocumentForm)"><span style="margin-right:10px;" class="glyphicon glyphicon-envelope"></span> Send </button>
+                        <button class="btn btn-success btn-outline-rounded" (click)="onSubmit(markDocumentForm)"><span style="margin-right:10px;" class="glyphicon glyphicon-envelope"></span> Send </button>
                     </div>
     </div>
 </form>

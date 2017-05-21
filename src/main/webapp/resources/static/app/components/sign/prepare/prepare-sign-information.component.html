@@ -65,11 +65,4 @@
                     <button [routerLink]="['/prepare/send']" (click)="onSubmit(signDocumentForm)" class="btn btn-success btn-outline-rounded btn-info" [disabled]="signDocumentForm.invalid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                 </div>
 </div>
-
-<div class="margin-20">
-          <div>Form details:-</div>
-          <pre>Is Form valid?: <br>{{signDocumentForm.valid | json}}</pre>
-          <pre>form value: <br>{{signDocumentForm.value | json}}</pre>
-        </div>
-
 </form>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
- 
+
+import {Message} from './common/api';
 const URL = '.';
  
 @Component({
@@ -8,7 +8,12 @@ const URL = '.';
   templateUrl: './document-uploader.component.html'
 })
 export class DocumentUploaderComponent {
-  
-  public uploader:FileUploader = new FileUploader({url: URL});
- 
+    
+    uploadedFiles: any[] = [];
+
+    onUpload(event:any) {
+        for(let file of event.files) {
+            this.uploadedFiles.push(file);
+        }
+    }
 }
