@@ -121,7 +121,17 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
         for(let i = 0; i < files.length; i++) {
             let file = files[i];
             if(this.validate(file)) {
-                file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
+                if(this.isImage(file)) {
+                    file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
+                } 
+                if(this.isPdf(file)) {
+                    var reader  = new FileReader();
+                    reader.addEventListener("load", function () { file.objectURL =  reader.result; }, false);
+                    if (file) {
+                        reader.readAsDataURL(file);
+                    }
+                }
+                
                 this.files.push(file);
             }
         }
@@ -185,6 +195,10 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
         return /^image\//.test(file.type);
     }
     
+    isPdf(file: File): boolean {
+        return 'application/pdf' === file.type;
+    }
+
     onImageLoad(img: any) {
         window.URL.revokeObjectURL(img.src);
     }
