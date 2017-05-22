@@ -121,11 +121,8 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
         for(let i = 0; i < files.length; i++) {
             let file = files[i];
             if(this.validate(file)) {
-                if(this.isImage(file)) {
-                    file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
-                }
-                
-                this.files.push(files[i]);
+                file.objectURL = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(files[i])));
+                this.files.push(file);
             }
         }
         

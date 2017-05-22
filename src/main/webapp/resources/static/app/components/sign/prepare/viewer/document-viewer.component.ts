@@ -8,7 +8,6 @@ import { PrepareFormDataService } from '../data/prepareFormData.service';
 })
 export class DocumentViewerComponent {
   
-    pdfSrc: string = 'https://vadimdez.github.io/ng2-pdf-viewer/pdf-test.pdf';
     pageNum: number = 1;
     pageCount: number;
     zoomValue: number = 1;
@@ -21,7 +20,7 @@ export class DocumentViewerComponent {
     }
 
     isPdf(file: File): boolean {
-        return /^pdf\//.test(file.type);
+        return 'application/pdf' === file.type;
     }
     
    callBackFn(pdf: PDFDocumentProxy) {
