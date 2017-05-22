@@ -1,6 +1,6 @@
 import {NgModule,Component,Input,Output,EventEmitter} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Message} from '../common/api';
+import {Message} from './message';
 
 @Component({
     selector: 'p-messages',

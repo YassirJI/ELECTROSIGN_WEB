@@ -1,12 +1,12 @@
 import {NgModule,Component,OnInit,Input,Output,EventEmitter,TemplateRef,AfterContentInit,ContentChildren,QueryList} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DomSanitizer} from '@angular/platform-browser';
-import {MessagesModule} from './messages/messages';
-import {ProgressBarModule} from './progressbar/progressbar';
-import {Message} from './common/api';
-import {PrimeTemplate, TemplateLoader, SharedModuleUp} from './common/shared';
+import {MessagesModule} from '../messages/messages';
+import {ProgressBarModule} from '../progressbar/progressbar';
+import {Message} from '../messages/message';
+import {TemplateLoader, PrimeTemplate} from '../common/template-loader.component';
 
-import { PrepareFormDataService } from '../data/prepareFormData.service';
+import { PrepareFormDataService } from '../../data/prepareFormData.service';
 
 @Component({
     selector: 'p-fileUpload',
@@ -63,7 +63,7 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
     
     @ContentChildren(PrimeTemplate) templates: QueryList<any>;
-     
+
     public files: File[];
     
     public progress: number = 0;
@@ -86,24 +86,24 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
     
     ngAfterContentInit():void {
         this.templates.forEach((item) => {
-            switch(item.getType()) {
-                case 'file':
-                    this.fileTemplate = item.template;
-                break;
-                
-                case 'content':
-                    this.contentTemplate = item.template;
-                break;
-                
-                case 'toolbar':
+             switch(item.getType()) {
+                 case 'file':
+                     this.fileTemplate = item.template;
+                 break;
+                 
+                 case 'content':
+                     this.contentTemplate = item.template;
+                 break;
+                 
+                 case 'toolbar':
                     this.toolbarTemplate = item.template;
-                break;
-                
-                default:
-                    this.fileTemplate = item.template;
-                break;
-            }
-        });
+                 break;
+                 
+                 default:
+                     this.fileTemplate = item.template;
+                 break;
+             }
+         });
     }
     
     onChooseClick(event:any, fileInput:any) {
@@ -194,7 +194,6 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
 
     upload() {
 
-        this.prepareFormDataService.setUploadedFiles(this.files);
         this.msgs = [];
         let xhr = new XMLHttpRequest(),
         formData = new FormData();
@@ -237,6 +236,7 @@ export class FileUploadComponent implements OnInit,AfterContentInit {
        // xhr.withCredentials = this.withCredentials;
         
       //  xhr.send(formData);
+      this.prepareFormDataService.setUploadedFiles(this.files);
     }
 
     clear() {
