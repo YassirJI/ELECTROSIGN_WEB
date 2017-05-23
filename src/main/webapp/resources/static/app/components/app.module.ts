@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { SignModule } from './sign/sign.module';
+import { SignModule } from './electrosign/sign.module';
 
 @NgModule({
   imports: [
