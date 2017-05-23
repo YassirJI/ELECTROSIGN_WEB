@@ -28,6 +28,7 @@
    
 <div class="wrapper wrapper-content" style="padding: 20px 30px" >
             <div class="row">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                      <prepare-navbar [activeStep]="prepare"></prepare-navbar>
                 </div>
@@ -36,6 +37,7 @@
 
 <div class="wrapper wrapper-content" style="padding: 20px 30px" >
             <div class="row">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <document-uploader></document-uploader>
                 </div>
@@ -44,6 +46,7 @@
 
 <div class="wrapper wrapper-content" style="padding: 20px 30px" >
             <div class="row">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <recipient-adder [group]="packageForm.controls.recipientForm"></recipient-adder>
                 </div>
@@ -54,6 +57,7 @@
     
 <div class="wrapper wrapper-content" style="padding: 20px 30px" >
             <div class="row">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <prepare-email-form [group]="packageForm.controls.emailForm"></prepare-email-form>
                 </div>
@@ -61,6 +65,7 @@
 </div>
 
 <div class="wrapper row form-group text-right">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <button [routerLink]="['/prepare/send']" (click)="onSubmit(packageForm)" class="btn btn-success btn-outline-rounded btn-info" [disabled]="packageForm.invalid"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                 </div>
