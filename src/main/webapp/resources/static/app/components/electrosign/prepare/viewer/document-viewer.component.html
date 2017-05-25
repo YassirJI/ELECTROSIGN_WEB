@@ -2,12 +2,33 @@
      <rd-widget-body >
         <div class="container pdf-viewer">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-1">
+                            <ul id="components_sign_menu" class="list-unstyled">
+                                <li>
+                                <a class="signature-tool tool-button image-annotate-add img-replace draggable ui-draggable " href="#" id="signHere_tool"
+                                        draggable="true" 
+                                        (dragstart)="onDrag($event)"
+                                        (dragend)="onDragEnd($event)">Signature Box</a> 
+                                </li>
+                                <li>
+                                    <a class="text-tool tool-button img-replace draggable ui-draggable" href="#" id="text_tool"
+                                        draggable="true" 
+                                        (dragstart)="onDrag($event)"
+                                        (dragend)="onDragEnd($event)">Text Box</a></li>
+                                <li>
+                                    <a class="date-tool tool-button img-replace draggable ui-draggable" href="#" id="date_tool"
+                                        draggable="true" 
+                                        (dragstart)="onDrag($event)"
+                                        (dragend)="onDragEnd($event)">Date Box</a>
+                                </li>
+                            </ul>
                 </div>
                 <div class="col-md-8">
                     <div *ngFor="let document of documents; let i = index;" class="text-center" style="padding-bottom: 15px;">
                         <div>
-                            <div><img [src]="document.content.objectURL" width="100%" *ngIf="isImage(document.content)"/></div>
+                            <div class="dropZone" style="position: relative" (drop)="onDrop($event)"  (dragover)="onDragOver($event)">
+                                <img [src]="document.content.objectURL" width="100%" *ngIf="isImage(document.content)" class="unselected"/>
+                            </div>
                             
                             <div class="wrapper" *ngIf="isPdf(document.content)">
                                 <div class="text-center pdf-toolbar">
@@ -30,13 +51,15 @@
 
                                     </div>
                                 </div>
-                                <pdf-viewer [src]="document.content.objectURL" 
-                                            [(page)]="pageNum"
-                                            [original-size]="true" 
-                                            [zoom]="zoomValue"
-                                            style="display: block;"
-                                            (after-load-complete)="callBackFn($event)">
-                                </pdf-viewer>
+                                <div class="dropZone"  style="display: block;position: relative" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+                                    <pdf-viewer [src]="document.content.objectURL" 
+                                                [(page)]="pageNum"
+                                                [original-size]="true" 
+                                                [zoom]="zoomValue"
+                                                [render-text]="false"
+                                                (after-load-complete)="callBackFn($event)" >
+                                    </pdf-viewer>
+                                </div>
                             </div>
                             <div>{{document.name}}</div>
                         </div>
