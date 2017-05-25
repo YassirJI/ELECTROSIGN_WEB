@@ -4,7 +4,7 @@ export class Tab {
      tabType: string;
      xPosition:string;
      yPosition:string;
-     recipientId : number;
+     recipientId? : number;
      documentId: number;
      pageNumber : number;
 }

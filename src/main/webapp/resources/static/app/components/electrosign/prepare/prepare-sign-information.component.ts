@@ -20,7 +20,7 @@ export class PrepareSignInformationComponent implements OnInit {
         this.packageForm = this.fb.group({
             emailForm: new FormGroup({
                 emailSubject: new FormControl(this.formDataService.getPackage().emailSubject, Validators.required),
-                emailContent: new FormControl(this.formDataService.getPackage().emailContent, Validators.required)
+                emailContent: new FormControl(this.formDataService.getPackage().emailContent)
             })
             , recipientForm: this.fb.group({
                  recipients: this.fb.array(this.initRecipientsForm())

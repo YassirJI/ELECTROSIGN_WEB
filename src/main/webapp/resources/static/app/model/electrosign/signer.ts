@@ -1,6 +1,9 @@
+import { Tabs } from "./tabs";
+
 export class Signer {
 
-  id?: number;
+  recipientId?: number;
   name: string;
   email: string;
+  tabs: Tabs = new Tabs();
 }

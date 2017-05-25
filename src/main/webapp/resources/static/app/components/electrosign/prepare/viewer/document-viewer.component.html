@@ -5,29 +5,29 @@
                 <div class="col-md-1">
                             <ul id="components_sign_menu" class="list-unstyled">
                                 <li>
-                                <a class="signature-tool tool-button image-annotate-add img-replace draggable ui-draggable " href="#" id="signHere_tool"
+                                <a class="signature-tool tool-button image-annotate-add img-replace draggable ui-draggable " id="signHere_tool"
                                         draggable="true" 
                                         (dragstart)="onDrag($event)"
                                         (dragend)="onDragEnd($event)">Signature Box</a> 
                                 </li>
                                 <li>
-                                    <a class="text-tool tool-button img-replace draggable ui-draggable" href="#" id="text_tool"
+                                    <a class="text-tool tool-button img-replace draggable ui-draggable" id="text_tool"
                                         draggable="true" 
                                         (dragstart)="onDrag($event)"
                                         (dragend)="onDragEnd($event)">Text Box</a></li>
                                 <li>
-                                    <a class="date-tool tool-button img-replace draggable ui-draggable" href="#" id="date_tool"
+                                    <a class="date-tool tool-button img-replace draggable ui-draggable" id="date_tool"
                                         draggable="true" 
                                         (dragstart)="onDrag($event)"
                                         (dragend)="onDragEnd($event)">Date Box</a>
                                 </li>
                             </ul>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div *ngFor="let document of documents; let i = index;" class="text-center" style="padding-bottom: 15px;">
                         <div>
-                            <div class="dropZone" style="position: relative" (drop)="onDrop($event)"  (dragover)="onDragOver($event)">
-                                <img [src]="document.content.objectURL" width="100%" *ngIf="isImage(document.content)" class="unselected"/>
+                            <div class="dropZone" (drop)="onDrop($event)"  (dragover)="onDragOver($event)" *ngIf="isImage(document.content)" >
+                                <img [src]="document.content.objectURL" width="100%" class="unselected"/>
                             </div>
                             
                             <div class="wrapper" *ngIf="isPdf(document.content)">
@@ -39,25 +39,25 @@
                                         <button id="zoomin" class="btn btn-white" (click)="zoomIn()"><i class="fa fa-search-minus"></i> <span class="hidden-xs">Zoom In</span></button>
                                         <button id="zoomout" class="btn btn-white" (click)="zoomOut()"><i class="fa fa-search-plus"></i> <span class="hidden-xs">Zoom Out</span> </button>
                                         <button id="zoomfit" class="btn btn-white" (click)="fit()"> 100%</button>
-                                        <span class="btn btn-white hidden-xs">Page: </span>
+                                        <span class="btn btn-white hidden-xs">Page: {{pageNum}}</span>
 
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" min=1 [(ngModel)]="pageNum">
+                                        <!--<div class="input-group">
+                                            <input type="text" class="form-control" min=1 [(ngModel)]="pageNum" (change)="onPageNumChange()">
 
                                             <div class="input-group-btn">
                                                 <button type="button" class="btn btn-white" id="page_count">/ {{pageCount}}</button>
                                             </div>
-                                        </div>
+                                        </div>-->
 
                                     </div>
                                 </div>
-                                <div class="dropZone"  style="display: block;position: relative" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+                                <div class="dropZone" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
                                     <pdf-viewer [src]="document.content.objectURL" 
                                                 [(page)]="pageNum"
                                                 [original-size]="true" 
                                                 [zoom]="zoomValue"
                                                 [render-text]="false"
-                                                (after-load-complete)="callBackFn($event)" >
+                                                (after-load-complete)="callBackFn($event)" style="display: block">
                                     </pdf-viewer>
                                 </div>
                             </div>

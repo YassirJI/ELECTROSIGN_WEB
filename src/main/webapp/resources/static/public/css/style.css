@@ -1992,7 +1992,7 @@ left: 35%;
       .draggable {
            cursor: move;
       }
-
+      
       .img-replace {
           display: block;
           text-indent: -3000px !important;
@@ -2002,6 +2002,10 @@ left: 35%;
           margin: 0 !important;
       }
       
+      .dropZone {
+            border: 1px solid #e0dcdc;
+            position: relative;
+      }
       .unselected {
         -webkit-user-select: none;  -khtml-user-select: none;   -moz-user-select: none; -o-user-select: none;    user-select: none;
       }

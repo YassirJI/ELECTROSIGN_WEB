@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, CanActivate } from '@angular/router';
 
 import { PreparePackageFormDataService } from '../../../services/electrosign/preparePackageFormData.service';
 import { SignService } from '../../../services/electrosign/sign.service';
+import { DocumentViewerComponent } from './viewer/document-viewer.component';
 
 import { Package } from '../../../model/electrosign/package';
 import { Recipient } from '../../../model/electrosign/recipient';
 import { Signer } from '../../../model/electrosign/signer';
+import { Tabs } from '../../../model/electrosign/tabs';
 
 @Component({
     selector: 'prepare-sign',
@@ -15,6 +17,9 @@ import { Signer } from '../../../model/electrosign/signer';
 })
 export class PrepareSignMarkerComponent implements OnInit {
    
+   @ViewChild('myDocumentViewerComponent')
+   private documentViewerComponent: DocumentViewerComponent;
+
    markDocumentForm: FormGroup;
    recipients : Recipient;
    signers : Signer[];
@@ -37,13 +42,21 @@ export class PrepareSignMarkerComponent implements OnInit {
     }
 
     onChangeSigner(signer:Signer) {
+        var tabs : Tabs = this.documentViewerComponent.saveSignerTabs();
+        this.selectedSigner.tabs = tabs;
         this.selectedSigner = signer;
     }
 
-    private onSubmit({ value, valid }: { value: Package, valid: boolean }) {
-        this.signService.sendPreparedPackage(this.formDataService.getPackage())
+    private onSubmit() {
+        var tabs : Tabs = this.documentViewerComponent.saveSignerTabs();
+        this.selectedSigner.tabs = tabs;
+        console.log(this.selectedSigner);
+        
+       /* this.signService.sendPreparedPackage(this.formDataService.getPackage())
             .subscribe(
             message => console.log(this.submissionMessage = message),
-            error => this.errorMessage = error);
+            error => this.errorMessage = error);*/
     }
+
+    
 }
