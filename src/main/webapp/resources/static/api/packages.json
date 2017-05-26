@@ -21,6 +21,18 @@
                                     "yPosition": "50",
                                     "documentId": "1",
                                     "pageNumber": "1"
+                                }],
+                                "dateSignedTabs": [{
+                                    "xPosition": "185",
+                                    "yPosition": "50",
+                                    "documentId": "1",
+                                    "pageNumber": "1"
+                                }],
+                                "textTabs": [{
+                                    "xPosition": "125",
+                                    "yPosition": "50",
+                                    "documentId": "1",
+                                    "pageNumber": "1"
                                 }]
                             }
                         }, 

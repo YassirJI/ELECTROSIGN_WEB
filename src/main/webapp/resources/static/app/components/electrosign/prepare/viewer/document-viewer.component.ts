@@ -150,8 +150,6 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
           return jThis.onDrag(<DragEvent>event.originalEvent);
         });
         $(".dropZone").append(newElement);
-    
-        console.log(newElement);
     }
 
     createSignerTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      

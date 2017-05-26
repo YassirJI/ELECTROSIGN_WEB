@@ -5,8 +5,6 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { PreparePackageFormDataService }    from '../../../services/electrosign/preparePackageFormData.service'
 
-import { PdfViewerComponent } from 'ng2-pdf-viewer';
-
 import { PrepareSignInformationComponent } from './prepare-sign-information.component';
 import { PrepareSignMarkerComponent } from './prepare-sign-marker.component';
 
@@ -37,7 +35,7 @@ import { SharedModule} from "../../shared/shared.module";
     providers:    [
                     { provide: PreparePackageFormDataService, useClass: PreparePackageFormDataService }
                    ],
-    declarations: [ PdfViewerComponent,
+    declarations: [ 
                     PrepareSignInformationComponent,
                     PrepareSignMarkerComponent,
                     PrepareEmailFormComponent,

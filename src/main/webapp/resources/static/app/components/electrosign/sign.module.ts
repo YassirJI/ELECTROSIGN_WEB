@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule} from "../shared/shared.module";
 import { PrepareModule} from "./prepare/prepare.module";
+import { SigningModule } from "./signing/signing.module";
 
 
 import { PackageListComponent } from './package/package-list.component';
@@ -17,6 +18,7 @@ import { SignService } from '../../services/electrosign/sign.service';
     FormsModule,
     SharedModule,
     PrepareModule,
+    SigningModule,
     RouterModule.forChild([
       { path: 'documents', component: PackageListComponent },
       { path: '', redirectTo: 'documents', pathMatch: 'full' },

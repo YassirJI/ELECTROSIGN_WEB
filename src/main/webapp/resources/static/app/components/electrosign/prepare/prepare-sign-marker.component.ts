@@ -50,7 +50,7 @@ export class PrepareSignMarkerComponent implements OnInit {
     private onSubmit() {
         var tabs : Tabs = this.documentViewerComponent.saveSignerTabs();
         this.selectedSigner.tabs = tabs;
-        console.log(this.selectedSigner);
+        console.log(this.formDataService.getPackage());
         
        /* this.signService.sendPreparedPackage(this.formDataService.getPackage())
             .subscribe(

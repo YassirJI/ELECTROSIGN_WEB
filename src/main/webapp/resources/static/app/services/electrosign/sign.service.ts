@@ -8,12 +8,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 import { Package } from '../../model/electrosign/package';
+import { Signer } from '../../model/electrosign/signer';
 
 @Injectable()
 export class SignService {
     private _signUrl = 'api/packages.json';
     private sendPreparedPackageUrl = 'api/sendPreparedPackage'; // URL to web api
-  
+    private recipientsUrl = 'api/recipients.json';
+    
     constructor(private _http: Http) { }
 
     getPackages(): Observable<Package[]> {
@@ -42,6 +44,13 @@ export class SignService {
         return body.message || {};
     }
 
+    getSigner(recipientId: number): Observable<Signer> {
+        return this._http.get(this.recipientsUrl)
+            .map((response: Response) => <Signer[]> response.json())
+            .map((packages: Signer[]) => packages.find(d => d.recipientId === recipientId))
+            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .catch(this.handleError);;
+    }
 
     private handleError(error: Response) {
         console.error(error);
