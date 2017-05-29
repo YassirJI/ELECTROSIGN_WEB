@@ -7,7 +7,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [ "es2016", "dom" ],
-    "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
      "types": [
         // add node as an option

@@ -9,6 +9,9 @@ import { Document } from '../../../model/electrosign/document';
 
 import { PreparePackageFormDataService } from '../../../services/electrosign/preparePackageFormData.service';
 
+import SignaturePad from 'signature_pad';
+import * as html2canvas from "html2canvas";
+
 @Component({
     selector: 'signing-document',
     templateUrl: './document-signing.component.html'
@@ -31,7 +34,7 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
    private signHereIncrement:number = 1;
    private activeSignatureTagId:string;
    
-   //private signaturePad:SignaturePad;
+   private signaturePad:SignaturePad;
 
 
    constructor(private router: Router, private signService:SignService, private preparePackageFormDataService: PreparePackageFormDataService) {
@@ -52,10 +55,11 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
 
     ngAfterViewInit() : void {
         this.addAddedTagsToNewDropZone();
+        this.initSignaturePad();
     }
 
     initSignaturePad():void {
-        // this.signaturePad = new SignaturePad(document.querySelector("#signature-pad"), {backgroundColor: 'rgba(255, 255, 255, 0)', penColor: 'rgb(0, 0, 0)'});
+         this.signaturePad = new SignaturePad(document.querySelector("#signature-pad"), {backgroundColor: 'rgba(255, 255, 255, 0)', penColor: 'rgb(0, 0, 0)'});
     }
 
     private isImage(file: File): boolean {
@@ -161,27 +165,27 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
         let image;
         let jThis = this;
     
-     //   if($("#drawIt").is(".active")){
-          //  image = this.signaturePad.toDataURL('image/png');
-          //  jThis.updatePeronalizedSignatureTag(jThis, image);
-     //   } else {
-          //  html2canvas(document.querySelector("#divtypeName")).then(function(canvas:any) {
-          //      image = canvas.toDataURL('image/png');
-          //      jThis.updatePeronalizedSignatureTag(jThis, image);
-          //      });
-     //   }
+        if($("#drawIt").is(".active")){
+            image = this.signaturePad.toDataURL('image/png');
+            jThis.updatePeronalizedSignatureTag(jThis, image);
+        } else {
+            html2canvas($("#divtypeName")).then(function(canvas) {
+                image = canvas.toDataURL('image/png');
+                jThis.updatePeronalizedSignatureTag(jThis, image);
+                });
+        }
    }
  
    updatePeronalizedSignatureTag(jThis:any, image:any):void {
        let tagDivElement = $("#" + this.activeSignatureTagId + "");
        tagDivElement.css('background-image', 'url("' + image + '")');
-       tagDivElement.css('background-color', 'white'); 
+       tagDivElement.css('background-color', 'white');
        tagDivElement.width(180);
        tagDivElement.height(60);   
    }
  
    clearCanvasSignature():void {
-     //this.signaturePad.clear();
+       this.signaturePad.clear();
    }
 
     private onSubmit() {

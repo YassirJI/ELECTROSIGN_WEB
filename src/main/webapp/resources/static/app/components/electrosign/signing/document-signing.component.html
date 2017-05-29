@@ -87,7 +87,7 @@
                      <div class="modal-body">
                           <div class="container-fluid">
                                  <div id="divsignaturePad" style="z-index: 1500;">
-                                             <span>Confirm your name and your signature</span>
+                                             <div class="header">Confirm your name and your signature</div>
                                              <div class="form-group">
                                                  <label for="fullName">Full name</label>
                                                  <input type="fullName" class="form-control" id="fullName" placeholder="Enter name" [(ngModel)]="activeTypedSignerName">
@@ -98,21 +98,22 @@
                                              </ul>
                                              <div class="tab-content ">
                                                  <div class="tab-pane active" id="typeIt">
-                                                     <span class="typeItDesc">
+                                                     <div class="typeItDesc">
                                                              Review your signature
-                                                     </span>
-                                                     <div class="wrapper typed unselected" id="divtypeName">
+                                                     </div>
+                                                     <div class="signature-wrapper typed unselected" id="divtypeName">
                                                          {{activeTypedSignerName}}
                                                      </div>
                                                  </div>
                                                  <div class="tab-pane" id="drawIt">
                                                  <div>
-                                                     <span class="drawItDesc">
+                                                     <div class="drawItDesc">
                                                          Draw your signature
-                                                     </span>
-                                                     <span class="clearButton"><a (click)="clearCanvasSignature()">Clear</a></span>
+                                                         <span class="clearButton"><a (click)="clearCanvasSignature()">Clear</a></span>
+                                                     </div>
+                                                    
                                                    </div>
-                                                   <div class="wrapper">
+                                                   <div class="signature-wrapper">
                                                          <img width=300 height=100 />
                                                          <canvas id="signature-pad" class="signature-pad" width=300 height=100></canvas>
                                                     </div>
