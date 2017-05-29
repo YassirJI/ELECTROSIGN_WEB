@@ -52,6 +52,7 @@ export class PrepareSignMarkerComponent implements OnInit {
         this.selectedSigner.tabs = tabs;
         console.log(this.formDataService.getPackage());
         
+        this.router.navigate(['/signing']);
        /* this.signService.sendPreparedPackage(this.formDataService.getPackage())
             .subscribe(
             message => console.log(this.submissionMessage = message),

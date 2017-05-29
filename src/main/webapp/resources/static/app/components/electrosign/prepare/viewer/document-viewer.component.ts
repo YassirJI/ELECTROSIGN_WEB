@@ -60,19 +60,19 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
    }
 
    goPrevious(): void {
-     if(this.selectedSigner) {
+     if(this.selectedSigner && this.pageNum>1) {
         this.selectedSigner.tabs = this.saveSignerTabs()
         this.cleanTagsFromDropZone();
-        if(this.pageNum>1) this.pageNum -= 1;
+        this.pageNum -= 1;
         this.addAddedTagsToNewDropZone();
      }
    }
 
    goNext(): void {
-     if(this.selectedSigner) {
+     if(this.selectedSigner && this.pageNum < this.pageCount) {
         this.selectedSigner.tabs = this.saveSignerTabs()
         this.cleanTagsFromDropZone();
-        if(this.pageNum < this.pageCount) this.pageNum += 1;
+        this.pageNum += 1;
         this.addAddedTagsToNewDropZone();
      }
    }
@@ -154,7 +154,7 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
 
     createSignerTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      
       var tagImageName:string =  this.findTagImageByType(tagType);
-      return $("<div draggable class='signerTag draggable' recipientId='0'  order='0' pageNumber="+pageNumber+" tagtype='"+tagType+"' tagcolor='tagTopYellow' style='position: absolute; left:" + offsetXPos + "px; top:" + offsetYPos + "px;background-image:url(../../../../public/assets/images/"+tagImageName+");background-repeat:no-repeat;background-position:center;background-size: contain;height:35px;width:160px;background-color: antiquewhite;cursor: move; border: 1px solid #BEBEBE; margin: 0 5px 10px 0;' clonedtag='yes' id='dragTagDiv'></div>");
+      return $("<div draggable='true' class='signerTag draggable' recipientId='0'  order='0' pageNumber="+pageNumber+" tagtype='"+tagType+"' tagcolor='tagTopYellow' style='position: absolute; left:" + offsetXPos + "px; top:" + offsetYPos + "px;background-image:url(../../../../public/assets/images/"+tagImageName+");background-repeat:no-repeat;background-position:center;background-size: contain;height:35px;width:160px;background-color: antiquewhite;cursor: move; border: 1px solid #BEBEBE; margin: 0 5px 10px 0;' clonedtag='yes' id='dragTagDiv'></div>");
     }
 
     findTagImageByType(tagType:string):string {

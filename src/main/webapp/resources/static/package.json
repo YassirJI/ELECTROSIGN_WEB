@@ -31,7 +31,9 @@
     "systemjs": "0.19.40",
     "zone": "^0.3.4",
     "zone.js": "^0.8.10",
-    "ng2-pdf-viewer": "^1.1.0"
+    "ng2-pdf-viewer": "^1.1.0",
+    "signature_pad": "^2.1.1",
+    "html2canvas": "^0.5.0-beta4"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^4.1.1",

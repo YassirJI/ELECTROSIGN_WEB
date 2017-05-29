@@ -2009,4 +2009,41 @@ left: 35%;
       .unselected {
         -webkit-user-select: none;  -khtml-user-select: none;   -moz-user-select: none; -o-user-select: none;    user-select: none;
       }
+
+
+      #divsignaturePad wrapper {
+          position: relative;
+          width: 300px;
+          height: 100px;
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+      }
+      #divsignaturePad img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-color: #f9f9f9;
+          box-shadow: 0 0px 20px 0px rgba(185, 179, 179, 0.2), 0 6px 20px 0 rgba(128, 113, 113, 0.19);
+      }
+      
+      .signature-pad {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width:300px;
+          height:100px;
+      }
+      
+      #divsignaturePad .typed {
+          margin: 0;
+          padding: 0 5px;
+          text-align: center;
+          cursor: default;
+          color: #145394;
+          font: normal 3.5em/80px "kunstler script" ,Georgia,Times,serif;
+          background-color: #f9f9f9;
+          box-shadow: 0 0px 20px 0px rgba(185, 179, 179, 0.2), 0 6px 20px 0 rgba(128, 113, 113, 0.19);
+      }
       /* End Signing marker style  */

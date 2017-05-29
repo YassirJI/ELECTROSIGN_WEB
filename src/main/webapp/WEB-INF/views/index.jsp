@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/static/node_modules/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/static/public/css/style.css">
-    
    </head>
     <body>
         <app>Loading App...</app>

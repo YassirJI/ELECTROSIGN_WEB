@@ -14,7 +14,7 @@ import { Signer } from '../../model/electrosign/signer';
 export class SignService {
     private _signUrl = 'api/packages.json';
     private sendPreparedPackageUrl = 'api/sendPreparedPackage'; // URL to web api
-    private recipientsUrl = 'api/recipients.json';
+    private recipientUrl = 'api/recipient.json';
     
     constructor(private _http: Http) { }
 
@@ -45,9 +45,8 @@ export class SignService {
     }
 
     getSigner(recipientId: number): Observable<Signer> {
-        return this._http.get(this.recipientsUrl)
-            .map((response: Response) => <Signer[]> response.json())
-            .map((packages: Signer[]) => packages.find(d => d.recipientId === recipientId))
+        return this._http.get(this.recipientUrl)
+            .map((response: Response) => <Signer> response.json())
             .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);;
     }
