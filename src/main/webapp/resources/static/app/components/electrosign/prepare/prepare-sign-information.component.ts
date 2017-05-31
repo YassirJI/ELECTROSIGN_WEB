@@ -12,6 +12,7 @@ import { Package } from '../../../model/electrosign/package';
 export class PrepareSignInformationComponent implements OnInit {
 
     private packageForm: FormGroup;
+    activeStep:string = "prepare";
     
     constructor(private fb: FormBuilder, private formDataService: PreparePackageFormDataService) { }
 

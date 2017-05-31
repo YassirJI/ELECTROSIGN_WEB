@@ -20,6 +20,8 @@ export class PrepareSignMarkerComponent implements OnInit {
    @ViewChild('myDocumentViewerComponent')
    private documentViewerComponent: DocumentViewerComponent;
 
+   activeStep = "markAndSend";
+    
    markDocumentForm: FormGroup;
    recipients : Recipient;
    signers : Signer[];

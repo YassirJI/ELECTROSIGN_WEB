@@ -154,11 +154,6 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
     private cleanTagsFromDropZone():void {
         $(".signerTag").remove();
     }
-
-    private callSignature() : void{
-        console.log("Signature click");
-        
-    }
     
     saveSignature():void {
  
