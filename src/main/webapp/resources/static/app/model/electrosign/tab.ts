@@ -2,8 +2,8 @@ export class Tab {
    
      tabId?:number;
      tabType: string;
-     xPosition:string;
-     yPosition:string;
+     xPosition:number;
+     yPosition:number;
      recipientId? : number;
      documentId: number;
      pageNumber : number;

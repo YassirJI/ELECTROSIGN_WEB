@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import { Component, OnInit, AfterViewInit, NgZone  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SignService } from '../../../services/electrosign/sign.service';
@@ -37,7 +37,15 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
    private signaturePad:SignaturePad;
 
 
-   constructor(private router: Router, private signService:SignService, private preparePackageFormDataService: PreparePackageFormDataService) {
+   constructor(private router: Router, private signService:SignService, private preparePackageFormDataService: PreparePackageFormDataService, private ngZone:NgZone) {
+      window.onresize = (e) =>
+      {
+            this.ngZone.run(() => {
+                  this.pageNum =  this.pageNum;
+                  this.cleanTagsFromDropZone();
+                  this.addAddedTagsToNewDropZone();
+              });
+        };
    }
     
     ngOnInit(): void {
@@ -108,23 +116,33 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
           let newElement;
           this.activeSigner.tabs.signHereTabs.forEach(tab => {             
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createSignHereTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber);
+                newElement = this.createSignHereTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
                 $(".dropZone").append(newElement);
             }
            });
           this.activeSigner.tabs.dateSignedTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createDateSignedTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber, this.dateNow());
+                newElement = this.createDateSignedTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber, this.dateNow());
                 $(".dropZone").append(newElement);
             }
            });
           this.activeSigner.tabs.textTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createTextTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber);
+                newElement = this.createTextTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
                 $(".dropZone").append(newElement);
             }
            });
         }
+    }
+
+    xPositionFromPercentValue(percentXPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("width");
+      return parseFloat(width)*percentXPos/100;
+    }
+
+    yPositionFromPercentValue(percentYPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("height");
+      return parseFloat(width)*percentYPos/100;
     }
 
     private createSignHereTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      

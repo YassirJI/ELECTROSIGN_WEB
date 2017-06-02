@@ -23,7 +23,7 @@
                                 </li>
                             </ul>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-11">
                     <div *ngFor="let document of documents; let i = index;" class="text-center" style="padding-bottom: 15px;">
                         <div>
                             <div class="dropZone" (drop)="onDrop($event)"  (dragover)="onDragOver($event)" *ngIf="isImage(document.content)" >
@@ -51,21 +51,20 @@
 
                                     </div>
                                 </div>
-                                <div class="dropZone" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+                                <div class="dropZone" (drop)="onDrop($event)" (dragover)="onDragOver($event)" width= "100%" height="100%">
                                     <pdf-viewer [src]="document.content.objectURL" 
                                                 [(page)]="pageNum"
-                                                [original-size]="true" 
+                                                [original-size]="false" 
                                                 [zoom]="zoomValue"
                                                 [render-text]="false"
-                                                (after-load-complete)="callBackFn($event)" style="display: block">
+                                                (after-load-complete)="callBackFn($event)"
+                                                 style="display: block">
                                     </pdf-viewer>
                                 </div>
                             </div>
                             <div>{{document.name}}</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2">
                 </div>
             </div>
         </div>

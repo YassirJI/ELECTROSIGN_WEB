@@ -43,10 +43,10 @@
                                                                     <span class="btn btn-white hidden-xs">Page: {{pageNum}} / {{pageCount}}</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="dropZone">
+                                                            <div class="dropZone"  width= "100%" height="100%">
                                                                 <pdf-viewer [src]="document.content.objectURL" 
                                                                             [(page)]="pageNum"
-                                                                            [original-size]="true" 
+                                                                            [original-size]="false" 
                                                                             [zoom]="zoomValue"
                                                                             [render-text]="false"
                                                                             (after-load-complete)="callBackFn($event)" style="display: block">

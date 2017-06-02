@@ -63,11 +63,23 @@ h5 {
   min-height: 568px;
   position: relative !important;
 }
+
+@media (min-width : 480px) {
+  .dropZone {
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+}
+
 @media (min-width: 768px) {
   #page-wrapper {
     position: inherit;
     margin: 0 0 0 0;
     min-height: 700px;
+  }
+
+  .container {
+    width: auto !important;
   }
 }
 

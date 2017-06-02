@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChange, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChange, Input, NgZone } from '@angular/core';
 import * as $ from 'jquery';
 
 import { PreparePackageFormDataService } from '../../../../services/electrosign/preparePackageFormData.service';
@@ -28,7 +28,17 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
 
     documents : Document[] = [];
 
-   constructor(private preparePackageFormDataService: PreparePackageFormDataService){}
+   constructor(private preparePackageFormDataService: PreparePackageFormDataService, private ngZone:NgZone) {
+      window.onresize = (e) =>
+      {
+            this.ngZone.run(() => {
+                  this.pageNum =  this.pageNum;
+                  this.cleanTagsFromDropZone();
+                  this.addAddedTagsToNewDropZone();
+              });
+        };
+    }
+
    
    ngOnInit(): void {
       this.documents = this.preparePackageFormDataService.getPackage().documents;
@@ -176,19 +186,19 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
           let newElement;
           this.selectedSigner.tabs.signHereTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createSignerTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber);
+                newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
                 $(".dropZone").append(newElement);
             }
            });
           this.selectedSigner.tabs.dateSignedTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createSignerTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber);
+                newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
                 $(".dropZone").append(newElement);
             }
            });
           this.selectedSigner.tabs.textTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
-                newElement = this.createSignerTagElement(tab.tabType, parseFloat(tab.xPosition), parseFloat(tab.yPosition), tab.pageNumber);
+                newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
                 $(".dropZone").append(newElement);
             }
            });
@@ -208,17 +218,38 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
       element.css({top:this.offsetY.valueOf(),left:this.offsetX.valueOf()});
     }
 
+    xPositionToPercentValue(xPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("width");
+      return xPos*100/parseFloat(width); 
+    }
+
+    xPositionFromPercentValue(percentXPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("width");
+      return parseFloat(width)*percentXPos/100;
+    }
+
+    yPositionToPercentValue(yPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("height");
+      return yPos*100/parseFloat(width); 
+    }
+
+    yPositionFromPercentValue(percentYPos:number):number {
+      let width:string = $("div.dropzone canvas").attr("height");
+      return parseFloat(width)*percentYPos/100;
+    }
+
     saveSignerTabs() : Tabs {
           let signHereTabs : Tab[] = [] ; 
           let dateSignedTabs : Tab[] = [] ; 
           let textTabs : Tab[] = [] ; 
-
+          
+          let jThis = this;
           $(".signerTag").each(function () {
                       var element = $(this);
                       var tagType = element.attr("tagtype");
                       var tab : Tab = {
-                                  'xPosition' : element.css("left"),
-                                  'yPosition' : element.css("top"),
+                                  'xPosition' : jThis.xPositionToPercentValue(parseFloat(element.css("left"))),
+                                  'yPosition' : jThis.yPositionToPercentValue(parseFloat(element.css("top"))),
                                   'documentId': 1,
                                   'pageNumber': parseFloat(element.attr("pageNumber")),
                                   'tabType' : element.attr("tagtype")

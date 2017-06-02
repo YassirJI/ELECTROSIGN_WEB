@@ -5,7 +5,7 @@
     <rd-widget-body >
         <div class="container">
             <div class="row">
-              <div class="col-xs-10 col-lg-12" [formGroup]="recipientForm">
+              <div class="col-sm-10 col-md-10 col-lg-12" [formGroup]="recipientForm">
                 <div class="margin-20">
                   <p>As the sender, you automatically receive a copy of the completed documents.</p>
                 </div>
@@ -17,14 +17,14 @@
                         <span class="glyphicon glyphicon-remove pull-right" *ngIf="recipientForm.controls.recipients.controls.length > 1" (click)="removeRecipient(i)"></span>
                       </div>
                       <div class="panel-body" [formGroupName]="i">
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-md-6 col-xs-12">
                           <label>Name</label>
                           <input type="text" class="form-control" formControlName="name">
                           <small [hidden]="recipientForm.controls.recipients.controls[i].controls.name.valid" class="text-danger">
                               Name is required
                           </small>
                         </div>
-                        <div class="form-group col-xs-6">
+                        <div class="form-group col-md-6 col-xs-12">
                           <label>Email</label>
                           <input type="text" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" class="form-control" formControlName="email">
                           <small [hidden]="recipientForm.controls.recipients.controls[i].controls.email.valid" class="text-danger">
