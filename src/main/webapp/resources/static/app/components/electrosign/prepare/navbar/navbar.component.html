@@ -3,7 +3,7 @@
         <div class="liner"></div>
                     
         <li  [ngClass]="{'active' : isPrepareStep()}">
-            <a data-toggle="tab" title="prepare">
+            <a title="prepare">
                 <span class="round-tabs one">
                     <i class="glyphicon glyphicon-pencil"></i>
                 </span>
@@ -11,15 +11,15 @@
         </li>
 
          <li [ngClass]="{'active' : isMarkAndSendStep()}">
-            <a data-toggle="tab" title="send">
+            <a title="send">
                 <span class="round-tabs two">
                     <i class="glyphicon glyphicon-tasks"></i>
                 </span> 
             </a>
         </li>
 
-        <li>
-            <a data-toggle="tab" title="completed">
+        <li [ngClass]="{'active' : isCompletedStep()}">
+            <a title="completed">
                 <span class="round-tabs three">
                     <i class="glyphicon glyphicon-ok"></i>
                 </span>

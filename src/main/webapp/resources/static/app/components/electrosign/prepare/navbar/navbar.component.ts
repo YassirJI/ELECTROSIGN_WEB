@@ -22,4 +22,11 @@ export class NavbarComponent {
         }
         return false;
     }
+
+    isCompletedStep(): boolean {
+        if('completed' === this.activeStep){
+            return true;
+        }
+        return false;
+    }
 }

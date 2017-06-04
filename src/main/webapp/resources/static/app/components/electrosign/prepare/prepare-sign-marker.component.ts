@@ -12,7 +12,7 @@ import { Signer } from '../../../model/electrosign/signer';
 import { Tabs } from '../../../model/electrosign/tabs';
 
 @Component({
-    selector: 'prepare-sign',
+    selector: 'sign-marker',
     templateUrl: './prepare-sign-marker.component.html'
 })
 export class PrepareSignMarkerComponent implements OnInit {
@@ -54,7 +54,7 @@ export class PrepareSignMarkerComponent implements OnInit {
         this.selectedSigner.tabs = tabs;
         console.log(this.formDataService.getPackage());
         
-        this.router.navigate(['/signing']);
+        this.router.navigate(['/prepare/confirm']);
        /* this.signService.sendPreparedPackage(this.formDataService.getPackage())
             .subscribe(
             message => console.log(this.submissionMessage = message),

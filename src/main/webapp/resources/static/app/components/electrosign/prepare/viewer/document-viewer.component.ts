@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChange, Input, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnChanges, SimpleChange, Input, NgZone } from '@angular/core';
 import * as $ from 'jquery';
 
 import { PreparePackageFormDataService } from '../../../../services/electrosign/preparePackageFormData.service';
@@ -13,7 +13,7 @@ import { Tab } from '../../../../model/electrosign/tab';
   selector: 'document-viewer',
   templateUrl: './document-viewer.component.html'
 })
-export class DocumentViewerComponent  implements OnInit, OnChanges{
+export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChanges{
 
     @Input()
     private selectedSigner : Signer;
@@ -21,6 +21,8 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
     private draggedItem:Element;
     private offsetX:number;
     private offsetY:number;
+    private mouseOffsetX:Number;
+    private mouseOffsetY:Number;
 
     pageNum: number = 1;
     pageCount: number;
@@ -42,7 +44,11 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
    
    ngOnInit(): void {
       this.documents = this.preparePackageFormDataService.getPackage().documents;
-     }
+   }
+
+    ngAfterViewInit() : void {
+        this.addAddedTagsToNewDropZone();
+    }
    
    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
       for (let propName in changes) {
@@ -111,8 +117,22 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
 
    onDrag(draggEvent:DragEvent):void{
       this.draggedItem=draggEvent.srcElement;
+      this.mouseOffsetX=this.calculateMouseOffsetX(draggEvent);
+      this.mouseOffsetY=this.calculateMouseOffsetY(draggEvent);
     }
 
+    private calculateMouseOffsetX(draggEvent:DragEvent):Number{
+        let draggedElement=$(draggEvent.srcElement);
+        let padding=draggedElement.outerWidth()-draggedElement.width();
+        return draggEvent.layerX-(draggEvent.srcElement.clientLeft+padding/2);
+    }
+
+    private calculateMouseOffsetY(draggEvent:DragEvent):Number{
+        let draggedElement=$(draggEvent.srcElement);
+        let padding=draggedElement.outerHeight()-draggedElement.height();
+        return draggEvent.layerY-(draggEvent.srcElement.clientTop+padding/2);
+    }
+    
     onDragEnter(draggEvent:DragEvent):void {
     
     }
@@ -120,11 +140,10 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
     onDragleave(draggEvent:Event):void {
     }
 
-    onDragOver(draggEvent:DragEvent):void{
-    
+    onDragOver(draggEvent:DragEvent):void{    
         draggEvent.preventDefault();
-        this.offsetX=draggEvent.offsetX;
-        this.offsetY=draggEvent.offsetY;
+        this.offsetX=draggEvent.offsetX-this.mouseOffsetX.valueOf();
+        this.offsetY=draggEvent.offsetY-this.mouseOffsetY.valueOf();   
     }
 
     onDragEnd(draggEvent:DragEvent):void{
@@ -164,7 +183,8 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
 
     createSignerTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      
       var tagImageName:string =  this.findTagImageByType(tagType);
-      return $("<div draggable='true' class='signerTag draggable' recipientId='0'  order='0' pageNumber="+pageNumber+" tagtype='"+tagType+"' tagcolor='tagTopYellow' style='position: absolute; left:" + offsetXPos + "px; top:" + offsetYPos + "px;background-image:url(../../../../public/assets/images/"+tagImageName+");background-repeat:no-repeat;background-position:center;background-size: contain;height:35px;width:160px;background-color: antiquewhite;cursor: move; border: 1px solid #BEBEBE; margin: 0 5px 10px 0;' clonedtag='yes' id='dragTagDiv'></div>");
+      let removeLink = "<a id='removeSignerTag' onclick='$(this).parent().remove();' style='float: right;color:#e03737;cursor: pointer;'> <i class='glyphicon glyphicon-remove'></i> </a>"
+      return $("<div draggable='true' class='signerTag draggable' recipientId='0'  order='0' pageNumber="+pageNumber+" tagtype='"+tagType+"' style='position: absolute; left:" + offsetXPos + "px; top:" + offsetYPos + "px;background-image:url(../../../../public/assets/images/"+tagImageName+");background-repeat:no-repeat;background-position:center;background-size: contain;height:35px;width:160px;background-color: antiquewhite;cursor: move; border: 1px solid #BEBEBE; margin: 0 5px 10px 0;' clonedtag='yes' id='dragTagDiv'>"+removeLink+"</div>");
     }
 
     findTagImageByType(tagType:string):string {
@@ -229,8 +249,8 @@ export class DocumentViewerComponent  implements OnInit, OnChanges{
     }
 
     yPositionToPercentValue(yPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("height");
-      return yPos*100/parseFloat(width); 
+      let height:string = $("div.dropzone canvas").attr("height");
+      return yPos*100/parseFloat(height); 
     }
 
     yPositionFromPercentValue(percentYPos:number):number {

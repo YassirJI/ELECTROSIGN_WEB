@@ -1,0 +1,111 @@
+<div class="border-bottom">
+             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class='container-fluid' style="padding: 20px 30px;">
+                    <div class="row">
+                        <div class="col-lg-8"> 
+                            <h3>Prepare & Send a document</h3>
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a>Manage contracts</a>
+                                </li>
+                                <li class="active">
+                                    <strong>Prepare document</strong>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="col-lg-4">
+                             
+                        </div>
+                    </div>
+                </div>
+            </nav>
+</div>
+<form novalidate> 
+
+    <div class="wrapper wrapper-content" style="padding: 20px 30px" >
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <prepare-navbar [activeStep]="activeStep"></prepare-navbar>
+                    </div>
+                </div>
+    </div>
+
+    <div class="wrapper wrapper-content" style="padding: 20px 30px" >
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                         <rd-widget>
+                            <rd-widget-body >
+                                <div class="tab-pane fade in active">
+                                    <h3 class="head text-center">{{title}}</h3>
+                                    <h4 class="text-center">
+                                        Your package has been sent successfully
+                                    </h4>
+                                    <p class="narrow text-center">
+                                        Here is a copy of the information you have entered:
+                                    </p>
+                                    <div class='row'>
+                                        <div class='col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-8 col-md-offset-4 col-md-8'>
+                                            <div class="row">
+                                                <div class='col-xs-3 col-sm-2'>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="name">Status: </label> 
+                                                    </div>
+                                                </div>
+                                                <div class='col-xs-9 col-sm-10'>
+                                                    {{package.status | uppercase}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class='col-xs-3 col-sm-2'>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="email">Created on: </label> 
+                                                    </div>
+                                                </div>
+                                                <div class='col-xs-9 col-sm-10'>
+                                                    {{package.creationDate }}
+                                                </div>
+                                        </div>     
+                                            <div class="row">
+                                                <div class='col-xs-3 col-sm-2'>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="work">Documents: </label> 
+                                                    </div>
+                                                </div>
+                                                <div class='col-xs-9 col-sm-10'>
+                                                   <span *ngFor='let document of package.documents'>
+                                                             {{document.name}}, 
+                                                    </span>
+                                                </div>
+                                        </div>     
+                                        <div class="row">
+                                                <div class='col-xs-3 col-sm-2'>
+                                                    <div class="form-group">
+                                                        <label class="control-label" for="address">Recipients: </label>
+                                                    </div>
+                                                </div>
+                                                <div class='col-xs-9 col-sm-10'>
+                                                    <span *ngFor='let signer of package.recipients.signers'>
+                                                             {{signer.name}}, 
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-success btn-outline-rounded" [routerLink]="['/signing']" (click)="clickDone()"> Done <span style="margin-left:10px;" class="glyphicon glyphicon-ok-circle"></span></button>
+                                    </div>
+                                </div>
+                            </rd-widget-body>
+                         </rd-widget>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>
+                </div>
+    </div>
+
+</form>

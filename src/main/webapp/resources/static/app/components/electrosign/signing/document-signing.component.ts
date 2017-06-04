@@ -41,7 +41,6 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
       window.onresize = (e) =>
       {
             this.ngZone.run(() => {
-                  this.pageNum =  this.pageNum;
                   this.cleanTagsFromDropZone();
                   this.addAddedTagsToNewDropZone();
               });
@@ -62,8 +61,11 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
     }
 
     ngAfterViewInit() : void {
-        this.addAddedTagsToNewDropZone();
         this.initSignaturePad();
+        
+        setTimeout(() => {
+            this.addAddedTagsToNewDropZone();
+        }, 1000);
     }
 
     initSignaturePad():void {
@@ -135,16 +137,6 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
         }
     }
 
-    xPositionFromPercentValue(percentXPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("width");
-      return parseFloat(width)*percentXPos/100;
-    }
-
-    yPositionFromPercentValue(percentYPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("height");
-      return parseFloat(width)*percentYPos/100;
-    }
-
     private createSignHereTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      
       let newElement =  $("<div data-toggle='modal' data-target='#signatureModal' class='signerTag' id='signTagDiv"+this.signHereIncrement+"' signTagId='"+this.signHereIncrement+"' recipientId='0' pageNumber="+pageNumber+" tagtype='"+tagType+"' style='cursor:pointer; position: absolute; left:" + offsetXPos + "px; top:" + offsetYPos + "px;background-image:url(../../../../public/assets/images/sign_here.png);background-repeat:no-repeat;background-position:center;background-size: contain;height:35px;width:160px;background-color: antiquewhite;border: 1px solid #BEBEBE; margin: 0 5px 10px 0;' id='dragTagDiv'></div>");
       let jThis = this;
@@ -173,6 +165,21 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
         $(".signerTag").remove();
     }
     
+    
+    xPositionFromPercentValue(percentXPos:number):number {
+      let width:string = $("div.dropZone canvas").attr("width");
+      console.log("width", $("div.dropZone canvas").attr("width"));
+      
+      return parseFloat(width)*percentXPos/100;
+    }
+
+    yPositionFromPercentValue(percentYPos:number):number {
+      let height:string = $("div.dropZone canvas").attr("height");
+      console.log("height", $("div.dropZone canvas").attr("height"));
+      
+      return parseFloat(height)*percentYPos/100;
+    }
+
     saveSignature():void {
  
         let image;

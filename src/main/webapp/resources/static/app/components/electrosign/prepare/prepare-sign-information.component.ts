@@ -6,7 +6,7 @@ import { PreparePackageFormDataService } from '../../../services/electrosign/pre
 import { Package } from '../../../model/electrosign/package';
 
 @Component({
-    selector: 'prepare-sign',
+    selector: 'sign-prepare',
     templateUrl: './prepare-sign-information.component.html'
 })
 export class PrepareSignInformationComponent implements OnInit {

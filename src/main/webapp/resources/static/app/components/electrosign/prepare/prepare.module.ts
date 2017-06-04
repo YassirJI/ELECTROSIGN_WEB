@@ -7,6 +7,7 @@ import { PreparePackageFormDataService }    from '../../../services/electrosign/
 
 import { PrepareSignInformationComponent } from './prepare-sign-information.component';
 import { PrepareSignMarkerComponent } from './prepare-sign-marker.component';
+import { PrepareSignCompletedComponent } from './result/prepare-sign-completed.component';
 
 import { DocumentUploaderComponent } from './uploader/document-uploader.component';
 import { DocumentViewerComponent } from './viewer/document-viewer.component';
@@ -29,7 +30,8 @@ import { SharedModule} from "../../shared/shared.module";
                     MessagesModule,
                     RouterModule.forChild([
                      { path: 'prepare', component: PrepareSignInformationComponent },
-                     { path: 'prepare/send', component: PrepareSignMarkerComponent }
+                     { path: 'prepare/send', component: PrepareSignMarkerComponent },
+                     { path: 'prepare/confirm', component: PrepareSignCompletedComponent }
                       ]) 
                   ],
     providers:    [
@@ -38,6 +40,7 @@ import { SharedModule} from "../../shared/shared.module";
     declarations: [ 
                     PrepareSignInformationComponent,
                     PrepareSignMarkerComponent,
+                    PrepareSignCompletedComponent,
                     PrepareEmailFormComponent,
                     DocumentUploaderComponent,
                     DocumentViewerComponent,
