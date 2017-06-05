@@ -26,7 +26,7 @@
                 <div class="col-md-11">
                     <div *ngFor="let document of documents; let i = index;" class="text-center" style="padding-bottom: 15px;">
                         <div>
-                            <div class="dropZone" (drop)="onDrop($event)"  (dragover)="onDragOver($event)" *ngIf="isImage(document.content)" >
+                            <div class="dropZone{{document.id}}" (drop)="onDrop($event)"  (dragover)="onDragOver($event)" *ngIf="isImage(document.content)" >
                                 <img [src]="document.content.objectURL" width="100%" class="unselected"/>
                             </div>
                             
@@ -34,11 +34,11 @@
                                 <div class="text-center pdf-toolbar">
 
                                     <div class="btn-group">
-                                        <button id="prev" class="btn btn-white" (click)="goPrevious()"><i class="fa fa-long-arrow-left"></i> <span class="hidden-xs">Previous</span></button>
-                                        <button id="next" class="btn btn-white" (click)="goNext()"><i class="fa fa-long-arrow-right"></i> <span class="hidden-xs">Next</span></button>
-                                        <button id="zoomin" class="btn btn-white" (click)="zoomIn()"><i class="fa fa-search-minus"></i> <span class="hidden-xs">Zoom In</span></button>
-                                        <button id="zoomout" class="btn btn-white" (click)="zoomOut()"><i class="fa fa-search-plus"></i> <span class="hidden-xs">Zoom Out</span> </button>
-                                        <button id="zoomfit" class="btn btn-white" (click)="fit()"> 100%</button>
+                                        <button id="prev" class="btn btn-white" (click)="goPrevious(document.id)"><i class="fa fa-long-arrow-left"></i> <span class="hidden-xs">Previous</span></button>
+                                        <button id="next" class="btn btn-white" (click)="goNext(document.id)"><i class="fa fa-long-arrow-right"></i> <span class="hidden-xs">Next</span></button>
+                                        <button id="zoomin" class="btn btn-white" (click)="zoomIn(document.id)"><i class="fa fa-search-minus"></i> <span class="hidden-xs">Zoom In</span></button>
+                                        <button id="zoomout" class="btn btn-white" (click)="zoomOut(document.id)"><i class="fa fa-search-plus"></i> <span class="hidden-xs">Zoom Out</span> </button>
+                                        <button id="zoomfit" class="btn btn-white" (click)="fit(document.id)"> 100%</button>
                                         <span class="btn btn-white hidden-xs">Page: {{pageNum}}/ {{pageCount}}</span>
 
                                         <!--<div class="input-group">
@@ -51,7 +51,7 @@
 
                                     </div>
                                 </div>
-                                <div class="dropZone" (drop)="onDrop($event)" (dragover)="onDragOver($event)" width= "100%" height="100%">
+                                <div class="dropZone{{document.id}}" (drop)="onDrop($event)" (dragover)="onDragOver($event)" width= "100%" height="100%">
                                     <pdf-viewer [src]="document.content.objectURL" 
                                                 [(page)]="pageNum"
                                                 [original-size]="false" 

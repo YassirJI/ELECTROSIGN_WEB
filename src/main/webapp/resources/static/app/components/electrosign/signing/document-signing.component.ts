@@ -168,14 +168,12 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
     
     xPositionFromPercentValue(percentXPos:number):number {
       let width:string = $("div.dropZone canvas").attr("width");
-      console.log("width", $("div.dropZone canvas").attr("width"));
       
       return parseFloat(width)*percentXPos/100;
     }
 
     yPositionFromPercentValue(percentYPos:number):number {
       let height:string = $("div.dropZone canvas").attr("height");
-      console.log("height", $("div.dropZone canvas").attr("height"));
       
       return parseFloat(height)*percentYPos/100;
     }
@@ -187,16 +185,16 @@ export class DocumentSigningComponent implements OnInit, AfterViewInit  {
     
         if($("#drawIt").is(".active")){
             image = this.signaturePad.toDataURL('image/png');
-            jThis.updatePeronalizedSignatureTag(jThis, image);
+            jThis.updatePeronalizedSignatureTag(image);
         } else {
             html2canvas($("#divtypeName")).then(function(canvas) {
                 image = canvas.toDataURL('image/png');
-                jThis.updatePeronalizedSignatureTag(jThis, image);
+                jThis.updatePeronalizedSignatureTag(image);
                 });
         }
    }
  
-   updatePeronalizedSignatureTag(jThis:any, image:any):void {
+   updatePeronalizedSignatureTag(image:any):void {
        let tagDivElement = $("#" + this.activeSignatureTagId + "");
        tagDivElement.css('background-image', 'url("' + image + '")');
        tagDivElement.css('background-color', 'white');

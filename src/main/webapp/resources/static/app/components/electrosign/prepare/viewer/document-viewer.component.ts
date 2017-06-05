@@ -36,7 +36,7 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
             this.ngZone.run(() => {
                   this.pageNum =  this.pageNum;
                   this.cleanTagsFromDropZone();
-                  this.addAddedTagsToNewDropZone();
+                  this.documents.forEach(document => {this.addAddedTagsToNewDropZone(document.id);})
               });
         };
     }
@@ -47,7 +47,7 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
    }
 
     ngAfterViewInit() : void {
-        this.addAddedTagsToNewDropZone();
+      this.documents.forEach(document => {this.addAddedTagsToNewDropZone(document.id);})
     }
    
    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
@@ -56,7 +56,7 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
         let to = JSON.stringify(changedProp.currentValue);
         
         this.cleanTagsFromDropZone();
-        this.addAddedTagsToNewDropZone();
+        this.documents.forEach(document => {this.addAddedTagsToNewDropZone(document.id);})
       }
       
     }
@@ -75,36 +75,36 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
       this.pageCount = pdf.numPages;
    }
 
-   goPrevious(): void {
+   goPrevious(documentId:number): void {
      if(this.selectedSigner && this.pageNum>1) {
         this.selectedSigner.tabs = this.saveSignerTabs()
         this.cleanTagsFromDropZone();
         this.pageNum -= 1;
-        this.addAddedTagsToNewDropZone();
+        this.addAddedTagsToNewDropZone(documentId);
      }
    }
 
-   goNext(): void {
+   goNext(documentId:number): void {
      if(this.selectedSigner && this.pageNum < this.pageCount) {
         this.selectedSigner.tabs = this.saveSignerTabs()
         this.cleanTagsFromDropZone();
         this.pageNum += 1;
-        this.addAddedTagsToNewDropZone();
+        this.addAddedTagsToNewDropZone(documentId);
      }
    }
    
-   onPageNumChange() : void {
+   onPageNumChange(documentId:number) : void {
      if(this.selectedSigner) {
         this.selectedSigner.tabs = this.saveSignerTabs()
         this.cleanTagsFromDropZone();
-        this.addAddedTagsToNewDropZone();
+        this.addAddedTagsToNewDropZone(documentId);
      }
    }
 
-   zoomIn(): void {
+   zoomIn(documentId:number): void {
      this.zoomValue -= 0.1;
    }
-   zoomOut(): void {
+   zoomOut(documentId:number): void {
      this.zoomValue += 0.1;
    }
 
@@ -178,7 +178,7 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
         newElement.bind("dragstart", function(event) {
           return jThis.onDrag(<DragEvent>event.originalEvent);
         });
-        $(".dropZone").append(newElement);
+        $(".dropZone{{documentId}}").append(newElement);
     }
 
     createSignerTagElement(tagType:string, offsetXPos:number, offsetYPos:number, pageNumber:number) {      
@@ -200,26 +200,26 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
       return null;
     }
 
-    addAddedTagsToNewDropZone(): void {
+    addAddedTagsToNewDropZone(documentId:number): void {
                
         if(this.selectedSigner != null && this.selectedSigner.tabs != null) {
           let newElement;
           this.selectedSigner.tabs.signHereTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
                 newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
-                $(".dropZone").append(newElement);
+                $(".dropZone{{documentId}}").append(newElement);
             }
            });
           this.selectedSigner.tabs.dateSignedTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
                 newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
-                $(".dropZone").append(newElement);
+                $(".dropZone{{documentId}}").append(newElement);
             }
            });
           this.selectedSigner.tabs.textTabs.forEach(tab => {
             if(this.pageNum == tab.pageNumber) {
                 newElement = this.createSignerTagElement(tab.tabType, this.xPositionFromPercentValue(tab.xPosition), this.yPositionFromPercentValue(tab.yPosition), tab.pageNumber);
-                $(".dropZone").append(newElement);
+                $(".dropZone{{documentId}}").append(newElement);
             }
            });
         }
@@ -239,22 +239,22 @@ export class DocumentViewerComponent  implements OnInit, AfterViewInit, OnChange
     }
 
     xPositionToPercentValue(xPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("width");
+      let width:string = $("div.dropzone{{documentId}} canvas").attr("width");
       return xPos*100/parseFloat(width); 
     }
 
     xPositionFromPercentValue(percentXPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("width");
+      let width:string = $("div.dropzone{{documentId}} canvas").attr("width");
       return parseFloat(width)*percentXPos/100;
     }
 
     yPositionToPercentValue(yPos:number):number {
-      let height:string = $("div.dropzone canvas").attr("height");
+      let height:string = $("div.dropzone{{documentId}} canvas").attr("height");
       return yPos*100/parseFloat(height); 
     }
 
     yPositionFromPercentValue(percentYPos:number):number {
-      let width:string = $("div.dropzone canvas").attr("height");
+      let width:string = $("div.dropzone{{documentId}} canvas").attr("height");
       return parseFloat(width)*percentYPos/100;
     }
 

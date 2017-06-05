@@ -26,7 +26,7 @@ export class PreparePackageFormDataService {
     setUploadedPackageDocuments(files: any[]) {
         var documents : Document[] = [];
         files.forEach(file => {
-            var document : Document = { name: file.name, content:file};
+            var document : Document = new Document(file.name, file);
             documents.push(document);
         });
         this.packageSign.documents = documents;
