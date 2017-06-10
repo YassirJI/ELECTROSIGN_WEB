@@ -31,7 +31,7 @@ import { SharedModule} from "../../shared/shared.module";
                     RouterModule.forChild([
                      { path: 'prepare', component: PrepareSignInformationComponent },
                      { path: 'prepare/send', component: PrepareSignMarkerComponent },
-                     { path: 'prepare/confirm', component: PrepareSignCompletedComponent }
+                     { path: 'prepare/completed', component: PrepareSignCompletedComponent }
                       ]) 
                   ],
     providers:    [

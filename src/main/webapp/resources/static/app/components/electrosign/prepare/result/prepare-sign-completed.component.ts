@@ -32,6 +32,6 @@ export class PrepareSignCompletedComponent implements OnInit {
     }   
     
     clickDone():void {
-
+        this.formDataService.resetPrepareFormData();
     }
 }

@@ -38,7 +38,7 @@ export class PrepareSignMarkerComponent implements OnInit {
        this.signers =  this.formDataService.getPackage().recipients.signers;
        this.selectedSigner = this.signers[0];
 
-       if (this.recipients == null || this.recipients.signers == null || this.recipients.signers.length == 0) {
+       if (this.formDataService.getPackage().status === "sent" || this.recipients == null || this.recipients.signers == null || this.recipients.signers.length == 0) {
            this.router.navigate(['/prepare']);
         }
     }
@@ -54,7 +54,7 @@ export class PrepareSignMarkerComponent implements OnInit {
         this.selectedSigner.tabs = tabs;
         console.log(this.formDataService.getPackage());
         
-        this.router.navigate(['/prepare/confirm']);
+        this.router.navigate(['/prepare/completed']);
        /* this.signService.sendPreparedPackage(this.formDataService.getPackage())
             .subscribe(
             message => console.log(this.submissionMessage = message),

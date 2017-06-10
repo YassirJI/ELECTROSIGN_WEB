@@ -93,6 +93,8 @@ h5 {
 
 .navbar {
   border: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .navbar-fixed-top,
@@ -1616,7 +1618,7 @@ li.active span.round-tabs.five{
 #status-buttons .nav-tabs > li a{
    width: 70px;
    height: 70px;
-   margin: 20px auto;
+   margin: 10px auto;
    border-radius: 100%;
    padding: 0;
 }
@@ -1637,7 +1639,7 @@ li.active span.round-tabs.five{
 }
 .btn-outline-rounded{
     padding: 10px 40px;
-    margin: 20px 0;
+    margin: 15px 0;
     border: 2px solid transparent;
     border-radius: 25px;
 }
@@ -2065,3 +2067,7 @@ left: 35%;
         margin-bottom: 20px;
       }
       /* End Signing marker style  */
+
+.header-nav {
+  padding: 10px 30px 0px 30px;
+}

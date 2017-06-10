@@ -20,9 +20,9 @@ import { SignService } from '../../services/electrosign/sign.service';
     PrepareModule,
     SigningModule,
     RouterModule.forChild([
-      { path: 'documents', component: PackageListComponent },
-      { path: '', redirectTo: 'documents', pathMatch: 'full' },
-      { path: '**', redirectTo: 'documents', pathMatch: 'full' }
+      { path: 'packages', component: PackageListComponent },
+      { path: '', redirectTo: 'packages', pathMatch: 'full' },
+      { path: '**', redirectTo: 'packages', pathMatch: 'full' }
     ])
   ],
   declarations: [
